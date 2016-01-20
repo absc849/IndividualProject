@@ -211,7 +211,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.6100006, y: -1.44000006, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
-  m_Children: []
+  m_Children:
+  - {fileID: 1418353241}
+  - {fileID: 1667630110}
+  - {fileID: 1178133987}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!50 &208729344
@@ -242,6 +245,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  groundPoints:
+  - {fileID: 1418353241}
+  - {fileID: 1667630110}
+  - {fileID: 1178133987}
+  groundRadius: .200000003
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  airControl: 0
+  jumpForce: 400
 --- !u!61 &208729346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -363,6 +376,33 @@ SpriteRenderer:
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 025e071497ab84e2d92600310f56393f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1178133986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1178133987}
+  m_Layer: 0
+  m_Name: GroundPointM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1178133987
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1178133986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0240000002, y: -.235000014, z: 0}
+  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_Children: []
+  m_Father: {fileID: 208729343}
+  m_RootOrder: 2
 --- !u!1 &1178474098
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +520,33 @@ BoxCollider2D:
   m_Offset: {x: 15.1999998, y: -2.99000001}
   serializedVersion: 2
   m_Size: {x: 16.7999992, y: 1}
+--- !u!1 &1418353240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1418353241}
+  m_Layer: 0
+  m_Name: GroundPointR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1418353241
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418353240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0810000002, y: -.234999999, z: 0}
+  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_Children: []
+  m_Father: {fileID: 208729343}
+  m_RootOrder: 0
 --- !u!1 &1422909144
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +655,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1334286301}
   m_RootOrder: 4
+--- !u!1 &1667630109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1667630110}
+  m_Layer: 0
+  m_Name: GroundPointL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667630110
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1667630109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.064000003, y: -.235000014, z: 0}
+  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_Children: []
+  m_Father: {fileID: 208729343}
+  m_RootOrder: 1
 --- !u!1 &1923213446
 GameObject:
   m_ObjectHideFlags: 0

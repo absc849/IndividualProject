@@ -15,9 +15,16 @@ public class Player : MonoBehaviour {
 
 	[SerializeField]
 	private float groundRadius;
-
+	[SerializeField]
 	private LayerMask whatIsGround;
+
+	[SerializeField]
+	private bool airControl;
 	private bool isGrounded;
+	private bool jump;
+
+	[SerializeField]
+	private float jumpForce;
 	// Use this for initialization
 	void Start () 
 	{	
@@ -39,7 +46,7 @@ public class Player : MonoBehaviour {
 		handleMovement (horizontal);
 		flipPlayer(horizontal);
 		handleAttacks ();
-		resetValues ();
+		resetValues();
 
 	
 	}
@@ -47,8 +54,15 @@ public class Player : MonoBehaviour {
 
 	private void handleMovement(float horizontal)
 	{
+
+
+		if (isGrounded && jump) 
+		{
+			isGrounded = false;
+			playerRigidBody.AddForce(new Vector2(0,jumpForce));
+		}
 		//if the player animator isnt attacking, layer 0 because base layer is layer 0 
-		if (!playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) 
+		if (!playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace") && (isGrounded || airControl)) 
 		{
 			playerRigidBody.velocity = new Vector2 (horizontal * speed, playerRigidBody.velocity.y);
 
@@ -58,6 +72,7 @@ public class Player : MonoBehaviour {
 
 	private void handleAttacks()
 	{
+
 		if (isAttacking && !this.playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
 			playerAnimator.SetTrigger("attack");
 			playerRigidBody.velocity = Vector2.zero;
@@ -68,6 +83,10 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			isAttacking = true;
 		}
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			jump = true;
+		}
+
 	}
 	private void flipPlayer(float horizontal)
 	{
@@ -84,7 +103,7 @@ public class Player : MonoBehaviour {
 	private void resetValues()
 	{
 		isAttacking = false;
-
+		jump = false;
 	}
 
 	private bool IsGrounded()
