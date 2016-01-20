@@ -10,6 +10,14 @@ public class Player : MonoBehaviour {
 	private float speed;
 	private bool facingRight;
 	private bool isAttacking;
+	[SerializeField] // we set the ground points in the inspector
+	private Transform[] groundPoints;
+
+	[SerializeField]
+	private float groundRadius;
+
+	private LayerMask whatIsGround;
+	private bool isGrounded;
 	// Use this for initialization
 	void Start () 
 	{	
@@ -26,11 +34,13 @@ public class Player : MonoBehaviour {
 	void FixedUpdate() 
 	{
 		float horizontal = Input.GetAxis ("Horizontal");
+		isGrounded = IsGrounded();
 
 		handleMovement (horizontal);
 		flipPlayer(horizontal);
 		handleAttacks ();
 		resetValues ();
+
 	
 	}
 
@@ -76,5 +86,22 @@ public class Player : MonoBehaviour {
 		isAttacking = false;
 
 	}
+
+	private bool IsGrounded()
+	{
+		if (playerRigidBody.velocity.y <= 0) // if less than 0 then not grounded
+		{ 
+			foreach (Transform point in groundPoints) { 
+				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
+				for (int i = 0; i < colliders.Length; i++) {
+					if (colliders [i].gameObject != gameObject) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 
 }
