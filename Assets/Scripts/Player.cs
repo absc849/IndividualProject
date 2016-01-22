@@ -45,7 +45,8 @@ public class Player : MonoBehaviour {
 
 		handleMovement (horizontal);
 		flipPlayer(horizontal);
-		handleAttacks ();
+		handleAttacks();
+		HandleLayers ();
 		resetValues();
 
 	
@@ -55,11 +56,18 @@ public class Player : MonoBehaviour {
 	private void handleMovement(float horizontal)
 	{
 
+		if (playerRigidBody.velocity.y < 0) 
+		{
+			playerAnimator.SetBool("land", true);
+
+		}
+
 
 		if (isGrounded && jump) 
 		{
 			isGrounded = false;
 			playerRigidBody.AddForce(new Vector2(0,jumpForce));
+			playerAnimator.SetTrigger("jump");
 		}
 		//if the player animator isnt attacking, layer 0 because base layer is layer 0 
 		if (!playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace") && (isGrounded || airControl)) 
@@ -73,7 +81,7 @@ public class Player : MonoBehaviour {
 	private void handleAttacks()
 	{
 
-		if (isAttacking && !this.playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
+		if (isAttacking && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
 			playerAnimator.SetTrigger("attack");
 			playerRigidBody.velocity = Vector2.zero;
 		}
@@ -114,6 +122,8 @@ public class Player : MonoBehaviour {
 				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
 				for (int i = 0; i < colliders.Length; i++) {
 					if (colliders [i].gameObject != gameObject) {
+						playerAnimator.ResetTrigger("jump");
+						playerAnimator.SetBool("land", false);
 						return true;
 					}
 				}
@@ -122,5 +132,14 @@ public class Player : MonoBehaviour {
 		return false;
 	}
 
+	private void HandleLayers()
+	{
+		if (!isGrounded) {
+			playerAnimator.SetLayerWeight(1,1);
+		}else{
+			playerAnimator.SetLayerWeight(1,0);
+		}
+	
+	}
 
 }
