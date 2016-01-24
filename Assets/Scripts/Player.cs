@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	private bool airControl;
 	private bool isGrounded;
 	private bool jump;
+	private bool jumpAttack;
 
 	[SerializeField]
 	private float jumpForce;
@@ -85,15 +86,25 @@ public class Player : MonoBehaviour {
 			playerAnimator.SetTrigger("attack");
 			playerRigidBody.velocity = Vector2.zero;
 		}
+
+		if (jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+			playerAnimator.SetBool("jumpAttack",true);
+		}
+
+		if (!jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+			playerAnimator.SetBool("jumpAttack",false);
+		}
 	}
 	private void handleInput()
 	{
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			isAttacking = true;
+			jumpAttack = true;
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			jump = true;
 		}
+
 
 	}
 	private void flipPlayer(float horizontal)
@@ -112,6 +123,7 @@ public class Player : MonoBehaviour {
 	{
 		isAttacking = false;
 		jump = false;
+		jumpAttack = false;
 	}
 
 	private bool IsGrounded()
