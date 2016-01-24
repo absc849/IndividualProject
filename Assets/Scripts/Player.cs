@@ -94,6 +94,11 @@ public class Player : MonoBehaviour {
 		if (!jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
 			playerAnimator.SetBool("jumpAttack",false);
 		}
+
+		//still attacks twice when lands, will fix 
+		if (!jumpAttack && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+			playerAnimator.SetBool("jumpAttack",false);
+		}
 	}
 	private void handleInput()
 	{
