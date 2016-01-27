@@ -23,6 +23,7 @@ public class Attacking : StateMachineBehaviour {
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		Player.PlayerInstance.IsAttacking = false;
 		animator.ResetTrigger("attacking");
+		animator.ResetTrigger("fireball");
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
