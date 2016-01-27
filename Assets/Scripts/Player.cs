@@ -2,14 +2,33 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
+	//public properties
+	public Rigidbody2D PlayerRigidBody{ get; set;}
+	public bool IsAttacking{ get; set;}
+	public bool IsJumping{ get; set;}
+	public bool OnTheGround{ get; set;}
 
-	//attack loops fix when you get home
-	private Rigidbody2D playerRigidBody;
+	//animator will use this
+	private static Player player_instance;
+	public static Player PlayerInstance
+	{
+		get
+		{
+			if(player_instance == null)
+			{
+				player_instance = GameObject.FindObjectOfType<Player>();
+			}
+			return player_instance;
+		}
+		//this type of method is a singleton cant use it for enemies because its meant to be used on a single object
+		//this one object can be accessed at all times
+		// could be used for specific enemies 
+
+	}
 	private Animator playerAnimator;
 	[SerializeField]
 	private float speed;
 	private bool facingRight;
-	private bool isAttacking;
 	[SerializeField] // we set the ground points in the inspector
 	private Transform[] groundPoints;
 
@@ -19,18 +38,20 @@ public class Player : MonoBehaviour {
 	private LayerMask whatIsGround;
 
 	[SerializeField]
-	private bool airControl;
-	private bool isGrounded;
-	private bool jump;
-	private bool jumpAttack;
+	private bool moveInAir;
+
 
 	[SerializeField]
 	private float jumpForce;
+
+
+
+
 	// Use this for initialization
 	void Start () 
 	{	
 		facingRight = true;
-		playerRigidBody = GetComponent<Rigidbody2D>();
+		PlayerRigidBody = GetComponent<Rigidbody2D>();
 		playerAnimator = GetComponent<Animator> ();
 	}
 
@@ -42,13 +63,11 @@ public class Player : MonoBehaviour {
 	void FixedUpdate() 
 	{
 		float horizontal = Input.GetAxis ("Horizontal");
-		isGrounded = IsGrounded();
+		OnTheGround = onGround();
 
 		handleMovement (horizontal);
 		flipPlayer(horizontal);
-		handleAttacks();
 		HandleLayers ();
-		resetValues();
 
 	
 	}
@@ -57,57 +76,49 @@ public class Player : MonoBehaviour {
 	private void handleMovement(float horizontal)
 	{
 
-		if (playerRigidBody.velocity.y < 0) 
-		{
-			playerAnimator.SetBool("land", true);
-
+		if (PlayerRigidBody.velocity.y < 0) {
+			playerAnimator.SetBool("landing", true);
 		}
 
-
-		if (isGrounded && jump) 
-		{
-			isGrounded = false;
-			playerRigidBody.AddForce(new Vector2(0,jumpForce));
-			playerAnimator.SetTrigger("jump");
+		if (!IsAttacking && (OnTheGround || moveInAir)) {
+			PlayerRigidBody.velocity = new Vector2(horizontal * speed, PlayerRigidBody.velocity.y);
 		}
-		//if the player animator isnt attacking, layer 0 because base layer is layer 0 
-		if (!playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace") && (isGrounded || airControl)) 
-		{
-			playerRigidBody.velocity = new Vector2 (horizontal * speed, playerRigidBody.velocity.y);
 
+		if(IsJumping && PlayerRigidBody.velocity.y == 0){
+			PlayerRigidBody.AddForce(new Vector2(0,jumpForce));
 		}
-		playerAnimator.SetFloat ("speed", Mathf.Abs(horizontal)); // returns positive value not negative
+		playerAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
 	}
 
-	private void handleAttacks()
-	{
-
-		if (isAttacking && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
-			playerAnimator.SetTrigger("attack");
-			playerRigidBody.velocity = Vector2.zero;
-		}
-
-		if (jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-			playerAnimator.SetBool("jumpAttack",true);
-		}
-
-		if (!jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-			playerAnimator.SetBool("jumpAttack",false);
-		}
-
-		//still attacks twice when lands, will fix 
-		if (!jumpAttack && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-			playerAnimator.SetBool("jumpAttack",false);
-		}
-	}
+//	private void handleAttacks()
+//	{
+//
+//		if (isAttacking && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
+//			playerAnimator.SetTrigger("attack");
+//			playerRigidBody.velocity = Vector2.zero;
+//		}
+//
+//		if (jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			playerAnimator.SetBool("jumpAttack",true);
+//		}
+//
+//		if (!jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			playerAnimator.SetBool("jumpAttack",false);
+//		}
+//
+//		//still attacks twice when lands, will fix 
+//		if (!jumpAttack && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			playerAnimator.SetBool("jumpAttack",false);
+//		}
+//	}
 	private void handleInput()
 	{
 		if (Input.GetKeyDown (KeyCode.Z)) {
-			isAttacking = true;
-			jumpAttack = true;
+			playerAnimator.SetTrigger("attacking");
+		
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			jump = true;
+			playerAnimator.SetTrigger("jumping");
 		}
 
 
@@ -124,23 +135,17 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	private void resetValues()
-	{
-		isAttacking = false;
-		jump = false;
-		jumpAttack = false;
-	}
 
-	private bool IsGrounded()
+
+	private bool onGround()
 	{
-		if (playerRigidBody.velocity.y <= 0) // if less than 0 then not grounded
+		if (PlayerRigidBody.velocity.y <= 0) // if less than 0 then not grounded
 		{ 
 			foreach (Transform point in groundPoints) { 
 				Collider2D[] colliders = Physics2D.OverlapCircleAll (point.position, groundRadius, whatIsGround);
 				for (int i = 0; i < colliders.Length; i++) {
-					if (colliders [i].gameObject != gameObject) {
-						playerAnimator.ResetTrigger("jump");
-						playerAnimator.SetBool("land", false);
+					if (colliders [i].gameObject != gameObject) 
+					{
 						return true;
 					}
 				}
@@ -149,9 +154,10 @@ public class Player : MonoBehaviour {
 		return false;
 	}
 
+
 	private void HandleLayers()
 	{
-		if (!isGrounded) {
+		if (!OnTheGround) {
 			playerAnimator.SetLayerWeight(1,1);
 		}else{
 			playerAnimator.SetLayerWeight(1,0);
