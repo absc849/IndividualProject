@@ -47,6 +47,9 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private GameObject pinkFire;
 
+	[SerializeField]
+	private Transform firePosition;
+
 
 
 	// Use this for initialization
@@ -125,7 +128,7 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.X)) {
 			playerAnimator.SetTrigger("fireball");
-			shootFire(0);
+			//shootFire(0);
 		}
 
 
@@ -173,19 +176,24 @@ public class Player : MonoBehaviour {
 			result = float.MinValue;
 		}
 		*/
-
-		if (facingRight) {
-			//Instantiate(pinkFire, (transform.position + new Vector3(result,0,0)), Quaternion.identity);
-			GameObject tmp = (GameObject)Instantiate(pinkFire, transform.position, Quaternion.identity);
-			tmp.GetComponent<Fireball>().Initialize(Vector2.right);
-		} 
-		else 
+		// f = 1 - in the air - 0 - on the ground, prevents two fireballs being shot at once
+		if(!OnTheGround && f == 1 || OnTheGround && f == 0)
 		{
-			GameObject tmp2 =(GameObject)Instantiate(pinkFire, transform.position, Quaternion.Euler(new Vector3(0,0,180)));
-			tmp2.GetComponent<Fireball>().Initialize(Vector2.left);
-
-
+			if (facingRight) {
+				//Instantiate(pinkFire, (transform.position + new Vector3(result,0,0)), Quaternion.identity);
+				GameObject tmp = (GameObject)Instantiate(pinkFire, firePosition.position, Quaternion.identity);
+				tmp.GetComponent<Fireball>().Initialize(Vector2.right);
+			} 
+			else 
+			{
+				GameObject tmp2 =(GameObject)Instantiate(pinkFire, firePosition.position, Quaternion.Euler(new Vector3(0,0,180)));
+				tmp2.GetComponent<Fireball>().Initialize(Vector2.left);
+				
+			}
 		}
+
+
+
 	}
 
 

@@ -178,7 +178,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: a3d16d74cd17a4a9c9eef84fba6bb2ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &171349253
@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 171349251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.4557285, y: -1.71000004, z: 0}
+  m_LocalPosition: {x: -5.71999979, y: -1.65999997, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -340,7 +340,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: a3d16d74cd17a4a9c9eef84fba6bb2ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &187289556
@@ -350,7 +350,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 187289554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.7099991, y: -1.71000004, z: 0}
+  m_LocalPosition: {x: -3.97000003, y: -1.60000002, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -425,12 +425,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 208729340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.6100006, y: -1.44000006, z: 0}
+  m_LocalPosition: {x: -4.94000006, y: -1.46000004, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 1418353241}
   - {fileID: 1667630110}
   - {fileID: 1178133987}
+  - {fileID: 425019945}
   m_Father: {fileID: 0}
   m_RootOrder: 5
 --- !u!50 &208729344
@@ -472,6 +473,7 @@ MonoBehaviour:
   moveInAir: 1
   jumpForce: 400
   pinkFire: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
+  firePosition: {fileID: 425019945}
 --- !u!61 &208729346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -689,6 +691,33 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f98b18065e3ee4cc3ad1ccc24281206b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &425019944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 425019945}
+  m_Layer: 0
+  m_Name: FireSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &425019945
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 425019944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .162, y: .0189999994, z: 0}
+  m_LocalScale: {x: .25, y: .25, z: .25}
+  m_Children: []
+  m_Father: {fileID: 208729343}
+  m_RootOrder: 3
 --- !u!1 &496314972
 GameObject:
   m_ObjectHideFlags: 0

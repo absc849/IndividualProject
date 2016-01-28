@@ -1,0 +1,375 @@
+fileFormatVersion: 2
+guid: 013b8f16f9fb24643b2a0a9694788ec8
+timeCreated: 1454005639
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sara_0
+    21300002: sara_1
+    21300004: sara_2
+    21300006: sara_3
+    21300008: sara_4
+    21300010: sara_5
+    21300012: sara_6
+    21300014: sara_7
+    21300016: sara_8
+    21300018: sara_9
+    21300020: sara_10
+    21300022: sara_11
+    21300024: sara_12
+    21300026: sara_13
+    21300028: sara_14
+    21300030: sara_15
+    21300032: sara_16
+    21300034: sara_17
+    21300036: sara_18
+    21300038: sara_19
+    21300040: sara_20
+    21300042: sara_21
+    21300044: sara_22
+    21300046: sara_23
+    21300048: sara_24
+    21300050: sara_25
+    21300052: sara_26
+    21300054: sara_27
+    21300056: sara_28
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sara_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 424
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 424
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 424
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 424
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_4
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 424
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_5
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 424
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_6
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 424
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_7
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 424
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_8
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 424
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_9
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 424
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 360
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_11
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 360
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_12
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 360
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 360
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_14
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 360
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_15
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 360
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_16
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 360
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_17
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 360
+        width: 35
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_18
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 296
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_19
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 296
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_20
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 296
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_21
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 296
+        width: 47
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_22
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 288
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_23
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 288
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_24
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 288
+        width: 30
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 230
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_26
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 232
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_27
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 232
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sara_28
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 232
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
