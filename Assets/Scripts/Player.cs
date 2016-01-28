@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : Character {
 	//public properties
 	public Rigidbody2D PlayerRigidBody{ get; set;}
-	public bool IsAttacking{ get; set;}
 	public bool IsJumping{ get; set;}
 	public bool OnTheGround{ get; set;}
 
@@ -25,10 +24,7 @@ public class Player : MonoBehaviour {
 		// could be used for specific enemies 
 
 	}
-	private Animator playerAnimator;
-	[SerializeField]
-	private float speed;
-	private bool facingRight;
+
 	[SerializeField] // we set the ground points in the inspector
 	private Transform[] groundPoints;
 
@@ -44,20 +40,16 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private float jumpForce;
 
-	[SerializeField]
-	private GameObject pinkFire;
 
-	[SerializeField]
-	private Transform firePosition;
 
 
 
 	// Use this for initialization
-	void Start () 
+	public override void Start () 
 	{	
-		facingRight = true;
+		base.Start ();
+
 		PlayerRigidBody = GetComponent<Rigidbody2D>();
-		playerAnimator = GetComponent<Animator> ();
 	}
 
 	void Update()
@@ -82,7 +74,7 @@ public class Player : MonoBehaviour {
 	{
 
 		if (PlayerRigidBody.velocity.y < 0) {
-			playerAnimator.SetBool("landing", true);
+			gameAnimator.SetBool("landing", true);
 		}
 
 		if (!IsAttacking && (OnTheGround || moveInAir)) {
@@ -92,42 +84,42 @@ public class Player : MonoBehaviour {
 		if(IsJumping && PlayerRigidBody.velocity.y == 0){
 			PlayerRigidBody.AddForce(new Vector2(0,jumpForce));
 		}
-		playerAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
+		gameAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
 	}
 
 //	private void handleAttacks()
 //	{
 //
-//		if (isAttacking && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
-//			playerAnimator.SetTrigger("attack");
+//		if (isAttacking && isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
+//			gameAnimator.SetTrigger("attack");
 //			playerRigidBody.velocity = Vector2.zero;
 //		}
 //
-//		if (jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-//			playerAnimator.SetBool("jumpAttack",true);
+//		if (jumpAttack && !isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			gameAnimator.SetBool("jumpAttack",true);
 //		}
 //
-//		if (!jumpAttack && !isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-//			playerAnimator.SetBool("jumpAttack",false);
+//		if (!jumpAttack && !isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			gameAnimator.SetBool("jumpAttack",false);
 //		}
 //
 //		//still attacks twice when lands, will fix 
-//		if (!jumpAttack && isGrounded && !this.playerAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-//			playerAnimator.SetBool("jumpAttack",false);
+//		if (!jumpAttack && isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			gameAnimator.SetBool("jumpAttack",false);
 //		}
 //	}
 	private void handleInput()
 	{
 		if (Input.GetKeyDown (KeyCode.Z)) {
-			playerAnimator.SetTrigger("attacking");
+			gameAnimator.SetTrigger("attacking");
 		
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			playerAnimator.SetTrigger("jumping");
+			gameAnimator.SetTrigger("jumping");
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {
-			playerAnimator.SetTrigger("fireball");
+			gameAnimator.SetTrigger("fireball");
 			//shootFire(0);
 		}
 
@@ -137,11 +129,7 @@ public class Player : MonoBehaviour {
 	{
 		if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
 		{
-			facingRight = !facingRight;
-			Vector3 playerScale = transform.localScale;
-			playerScale.x *= -1;
-			transform.localScale = playerScale;
-
+			changeDirection();
 		}
 	}
 
@@ -164,7 +152,7 @@ public class Player : MonoBehaviour {
 		return false;
 	}
 
-	public void shootFire(int f)
+	public override void doSpecialAttack(int v)
 	{
 		/*
 		float result = (float)0.5;
@@ -177,19 +165,9 @@ public class Player : MonoBehaviour {
 		}
 		*/
 		// f = 1 - in the air - 0 - on the ground, prevents two fireballs being shot at once
-		if(!OnTheGround && f == 1 || OnTheGround && f == 0)
+		if(!OnTheGround && v == 1 || OnTheGround && v == 0)
 		{
-			if (facingRight) {
-				//Instantiate(pinkFire, (transform.position + new Vector3(result,0,0)), Quaternion.identity);
-				GameObject tmp = (GameObject)Instantiate(pinkFire, firePosition.position, Quaternion.identity);
-				tmp.GetComponent<Fireball>().Initialize(Vector2.right);
-			} 
-			else 
-			{
-				GameObject tmp2 =(GameObject)Instantiate(pinkFire, firePosition.position, Quaternion.Euler(new Vector3(0,0,180)));
-				tmp2.GetComponent<Fireball>().Initialize(Vector2.left);
-				
-			}
+			base.doSpecialAttack(v);
 		}
 
 
@@ -200,9 +178,9 @@ public class Player : MonoBehaviour {
 	private void HandleLayers()
 	{
 		if (!OnTheGround) {
-			playerAnimator.SetLayerWeight(1,1);
+			gameAnimator.SetLayerWeight(1,1);
 		}else{
-			playerAnimator.SetLayerWeight(1,0);
+			gameAnimator.SetLayerWeight(1,0);
 		}
 	
 	}

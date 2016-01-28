@@ -433,7 +433,7 @@ Transform:
   - {fileID: 1178133987}
   - {fileID: 425019945}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!50 &208729344
 Rigidbody2D:
   serializedVersion: 2
@@ -462,6 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  magicSpell: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
+  spellPosition: {fileID: 425019945}
   groundPoints:
   - {fileID: 1418353241}
   - {fileID: 1667630110}
@@ -472,8 +474,6 @@ MonoBehaviour:
     m_Bits: 4294967295
   moveInAir: 1
   jumpForce: 400
-  pinkFire: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
-  firePosition: {fileID: 425019945}
 --- !u!61 &208729346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1046,7 +1046,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2.87500167, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &1148507342
 Prefab:
   m_ObjectHideFlags: 0
