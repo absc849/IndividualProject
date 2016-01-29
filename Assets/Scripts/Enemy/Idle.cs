@@ -13,7 +13,10 @@ public class Idle : EnemyStates{
 	}
 	public void Execute(){
 		idle ();
-		Debug.Log("mans idling innit");
+		Debug.Log("just idling ");
+		if (enemy.TargetCharacter != null) {
+			enemy.changeState(new Patrol());
+		}
 	}
 
 	public void Exit(){}

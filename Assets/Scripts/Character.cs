@@ -30,9 +30,9 @@ public abstract class Character : MonoBehaviour {
 	public void changeDirection()
 	{
 		facingRight = !facingRight;
-		Vector3 playerScale = transform.localScale;
-		playerScale.x *= -1;
-		transform.localScale = playerScale;
+		Vector3 charScale = transform.localScale;
+		charScale.x *= -1;
+		transform.localScale = charScale;
 
 	}
 

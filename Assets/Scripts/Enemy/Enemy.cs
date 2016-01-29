@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : Character {
 
 	private EnemyStates currentState;
+	public GameObject TargetCharacter{ get; set;}
 	// Use this for initialization
 	public override void Start () {
 	
@@ -18,7 +19,12 @@ public class Enemy : Character {
 
 	
 	}
-	public void OnTriggerEnter()
+	public void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("i hit the point");
+
+		currentState.OnTriggerEnter (other);
+	}
 	public Vector2 getDirection()
 	{
 		if (facingRight) {

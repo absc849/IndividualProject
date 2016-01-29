@@ -11,15 +11,20 @@ public class Patrol : EnemyStates {
 		this.patrollingEnemy = enemy;
 	}
 	public void Execute(){
-		Debug.Log("mans on patrol");
+		Debug.Log("im on patrol");
 		patrol ();
 		patrollingEnemy.moveEnemy();
+		if (patrollingEnemy.TargetCharacter != null) {
+			patrollingEnemy.changeState(new Ranged());
+		}
 	}
 	public void Exit(){}
 	public void OnTriggerEnter(Collider2D other)
 	{
 		if (other.tag == "TurningPoint") {
+			Debug.Log("i hit the point D:");
 			patrollingEnemy.changeDirection();
+
 		}
 	}
 
