@@ -1,15 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Idle : EnemyStates{
 
-	// Use this for initialization
-	void Start () {
-	
+	private Enemy enemy;
+
+	private float idleTimer;
+	private float idleTimeSpan = 3f;
+
+	public void Enter(Enemy enemy){
+		this.enemy = enemy;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void Execute(){
+		idle ();
+		Debug.Log("mans idling innit");
 	}
+
+	public void Exit(){}
+	public void OnTriggerEnter(Collider2D other){}
+
+	private void idle()
+	{
+		idleTimer += Time.deltaTime;
+
+		enemy.GameAnimator.SetFloat ("speed", 0);
+
+		if (idleTimer >= idleTimeSpan) {
+			enemy.changeState(new Patrol());
+		}
+	}
+
 }

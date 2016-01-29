@@ -4,7 +4,8 @@ using System.Collections;
 public abstract class Character : MonoBehaviour {
 
 	public bool IsAttacking{ get; set;}
-	protected Animator gameAnimator;
+	//protected Animator GameAnimator;
+	public Animator GameAnimator{ get; set;}
 	[SerializeField]
 	protected float speed;
 	protected bool facingRight;
@@ -17,7 +18,7 @@ public abstract class Character : MonoBehaviour {
 	public virtual void Start () {
 
 		facingRight = true;
-		gameAnimator = GetComponent<Animator> ();
+		GameAnimator = GetComponent<Animator> ();
 
 	}
 	

@@ -5,7 +5,7 @@ public class Player : Character {
 	//public properties
 	public Rigidbody2D PlayerRigidBody{ get; set;}
 	public bool IsJumping{ get; set;}
-	public bool OnTheGround{ get; set;}
+	public bool OnTheGround{ get; private set;}
 
 	//animator will use this
 	private static Player player_instance;
@@ -74,7 +74,7 @@ public class Player : Character {
 	{
 
 		if (PlayerRigidBody.velocity.y < 0) {
-			gameAnimator.SetBool("landing", true);
+			GameAnimator.SetBool("landing", true);
 		}
 
 		if (!IsAttacking && (OnTheGround || moveInAir)) {
@@ -84,42 +84,42 @@ public class Player : Character {
 		if(IsJumping && PlayerRigidBody.velocity.y == 0){
 			PlayerRigidBody.AddForce(new Vector2(0,jumpForce));
 		}
-		gameAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
+		GameAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
 	}
 
 //	private void handleAttacks()
 //	{
 //
-//		if (isAttacking && isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
-//			gameAnimator.SetTrigger("attack");
+//		if (isAttacking && isGrounded && !this.GameAnimator.GetCurrentAnimatorStateInfo (0).IsTag ("Attack_Mace")) {
+//			GameAnimator.SetTrigger("attack");
 //			playerRigidBody.velocity = Vector2.zero;
 //		}
 //
-//		if (jumpAttack && !isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-//			gameAnimator.SetBool("jumpAttack",true);
+//		if (jumpAttack && !isGrounded && !this.GameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			GameAnimator.SetBool("jumpAttack",true);
 //		}
 //
-//		if (!jumpAttack && !isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-//			gameAnimator.SetBool("jumpAttack",false);
+//		if (!jumpAttack && !isGrounded && !this.GameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			GameAnimator.SetBool("jumpAttack",false);
 //		}
 //
 //		//still attacks twice when lands, will fix 
-//		if (!jumpAttack && isGrounded && !this.gameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
-//			gameAnimator.SetBool("jumpAttack",false);
+//		if (!jumpAttack && isGrounded && !this.GameAnimator.GetCurrentAnimatorStateInfo (1).IsName ("JumpAttack")) {
+//			GameAnimator.SetBool("jumpAttack",false);
 //		}
 //	}
 	private void handleInput()
 	{
 		if (Input.GetKeyDown (KeyCode.Z)) {
-			gameAnimator.SetTrigger("attacking");
+			GameAnimator.SetTrigger("attacking");
 		
 		}
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			gameAnimator.SetTrigger("jumping");
+			GameAnimator.SetTrigger("jumping");
 		}
 
 		if (Input.GetKeyDown (KeyCode.X)) {
-			gameAnimator.SetTrigger("fireball");
+			GameAnimator.SetTrigger("fireball");
 			//shootFire(0);
 		}
 
@@ -178,9 +178,9 @@ public class Player : Character {
 	private void HandleLayers()
 	{
 		if (!OnTheGround) {
-			gameAnimator.SetLayerWeight(1,1);
+			GameAnimator.SetLayerWeight(1,1);
 		}else{
-			gameAnimator.SetLayerWeight(1,0);
+			GameAnimator.SetLayerWeight(1,0);
 		}
 	
 	}

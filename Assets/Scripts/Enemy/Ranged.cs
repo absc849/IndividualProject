@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class Ranged : EnemyStates{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public void Enter(Enemy enemy){}
+	public void Execute(){}
+	public void Exit(){}
+	public void OnTriggerEnter(Collider2D other){}
+
 }
