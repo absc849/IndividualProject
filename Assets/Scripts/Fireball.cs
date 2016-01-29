@@ -5,6 +5,7 @@ using System.Collections;
 
 public class Fireball : MonoBehaviour {
 
+	//change to special attack
 	[SerializeField]
 	private float attackSpeed;
 	private Rigidbody2D fireRigidBody;

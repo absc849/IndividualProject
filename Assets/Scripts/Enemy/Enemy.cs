@@ -16,8 +16,22 @@ public class Enemy : Character {
 	void Update () {
 
 		currentState.Execute ();
+		lookForCharacter ();
 
 	
+	}
+
+	private void lookForCharacter()
+	{
+		if (TargetCharacter != null) 
+		{
+			float xDirection = TargetCharacter.transform.position.x - transform.position.x;
+			if ( xDirection < 0 && facingRight || xDirection > 0 && !facingRight)
+			{
+				changeDirection();
+			}
+			// fix
+		}
 	}
 	public void OnTriggerEnter2D(Collider2D other)
 	{
