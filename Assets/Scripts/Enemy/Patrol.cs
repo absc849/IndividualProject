@@ -15,8 +15,8 @@ public class Patrol : EnemyStates {
 		patrol ();
 		patrollingEnemy.moveEnemy();
 		if (patrollingEnemy.TargetCharacter != null) {
-			patrollingEnemy.changeState(new Ranged());
-		}
+			patrollingEnemy.changeState (new Ranged ());
+		} 
 	}
 	public void Exit(){}
 	public void OnTriggerEnter(Collider2D other)

@@ -30,7 +30,6 @@ public class Enemy : Character {
 			{
 				changeDirection();
 			}
-			// fix
 		}
 	}
 	public void OnTriggerEnter2D(Collider2D other)
@@ -50,6 +49,7 @@ public class Enemy : Character {
 
 	public void changeState(EnemyStates newState)
 	{
+		Debug.Log("changing state");
 		if (currentState != null)
 		{
 			currentState.Exit();
@@ -62,9 +62,16 @@ public class Enemy : Character {
 
 	public void moveEnemy()
 	{
-		GameAnimator.SetFloat ("speed", 1);
-		//multiplying it by the time makes sure that no matter what computer you use the enemy is at a normal speed
-		transform.Translate (getDirection () * (speed * Time.deltaTime));
+		//edit if statement so enemy 1 can still move
+		Debug.Log("moving");
+		if(!IsAttacking)
+		{
+			GameAnimator.SetFloat ("speed", 1);
+			//multiplying it by the time makes sure that no matter what computer you use the enemy is at a normal speed
+			transform.Translate (getDirection () * (speed * Time.deltaTime));
+		 }
+
+
 
 	}
 }

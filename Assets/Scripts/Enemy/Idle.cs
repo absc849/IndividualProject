@@ -6,12 +6,13 @@ public class Idle : EnemyStates{
 	private Enemy enemy;
 
 	private float idleTimer;
-	private float idleTimeSpan = 3f;
+	private float idleTimeSpan = 2f;
 
 	public void Enter(Enemy enemy){
 		this.enemy = enemy;
 	}
 	public void Execute(){
+		Debug.Log("im idle now");
 		idle ();
 		Debug.Log("just idling ");
 		if (enemy.TargetCharacter != null) {
@@ -29,6 +30,7 @@ public class Idle : EnemyStates{
 		enemy.GameAnimator.SetFloat ("speed", 0);
 
 		if (idleTimer >= idleTimeSpan) {
+			idleTimer = 0;
 			enemy.changeState(new Patrol());
 		}
 	}

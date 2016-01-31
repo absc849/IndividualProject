@@ -5,13 +5,17 @@ public class Attacking : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		Player.PlayerInstance.IsAttacking = true;
-		if (Player.PlayerInstance.OnTheGround) 
-		{
-			Player.PlayerInstance.PlayerRigidBody.velocity = Vector2.zero;
+		//this slows the character when other characters attack so refer to this if you want the boss to do this
+//		Player.PlayerInstance.IsAttacking = true;
+
+		animator.GetComponent<Character> ().IsAttacking = true;
+		animator.SetFloat ("speed", 0);
+		if (animator.tag == "Player") {
+			if (Player.PlayerInstance.OnTheGround) {
+				Player.PlayerInstance.PlayerRigidBody.velocity = Vector2.zero;
+			}
+
 		}
-
-
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -21,9 +25,11 @@ public class Attacking : StateMachineBehaviour {
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		Player.PlayerInstance.IsAttacking = false;
+		animator.GetComponent<Character> ().IsAttacking = false;
+
 		animator.ResetTrigger("attacking");
 		animator.ResetTrigger("fireball");
+		animator.ResetTrigger ("specialMove");
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

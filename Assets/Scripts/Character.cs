@@ -38,14 +38,15 @@ public abstract class Character : MonoBehaviour {
 
 	public virtual void doSpecialAttack(int v)
 	{
+		Debug.Log ("doin special");
 		if (facingRight) {
 			GameObject tmp = (GameObject)Instantiate(magicSpell, spellPosition.position, Quaternion.identity);
-			tmp.GetComponent<Fireball>().Initialize(Vector2.right);
+			tmp.GetComponent<SpecialAttack>().Initialize(Vector2.right);
 		} 
 		else 
 		{
 			GameObject tmp2 =(GameObject)Instantiate(magicSpell, spellPosition.position, Quaternion.Euler(new Vector3(0,0,180)));
-			tmp2.GetComponent<Fireball>().Initialize(Vector2.left);
+			tmp2.GetComponent<SpecialAttack>().Initialize(Vector2.left);
 			
 		}
 	}

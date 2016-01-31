@@ -6,7 +6,7 @@ public class Ranged : EnemyStates{
 	private Enemy rangedEnemy;
 
 	private float attackTimer;
-	private float attackWaitingTime;
+	private float attackWaitingTime = 2;
 	private bool canDoSpecial;
 
 	public void Enter(Enemy enemy){
@@ -16,13 +16,18 @@ public class Ranged : EnemyStates{
 
 		doSpecialAttack ();
 		if (rangedEnemy.TargetCharacter != null) {
+
 			rangedEnemy.moveEnemy ();
 		} else {
+			Debug.Log ("fuck this");
 			rangedEnemy.changeState(new Idle());
+
 		}
 
 	}
-	public void Exit(){}
+	public void Exit(){
+		Debug.Log("exiting");
+	}
 	public void OnTriggerEnter(Collider2D other){}
 
 	private void doSpecialAttack()
@@ -32,11 +37,15 @@ public class Ranged : EnemyStates{
 			canDoSpecial = true;
 			attackTimer = 0;
 		}
+		
 		if (canDoSpecial) {
 			canDoSpecial = false;
-			rangedEnemy.GameAnimator.SetTrigger("fireball");
+
+			rangedEnemy.GameAnimator.SetTrigger("specialMove");
+			Debug.Log ("attacking");
 				//fix
 		}
+
 	}
 
 }
