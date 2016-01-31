@@ -7,7 +7,8 @@ public class Ranged : EnemyStates{
 
 	private float attackTimer;
 	private float attackWaitingTime = 2;
-	private bool canDoSpecial;
+	private bool canDoSpecial = true;
+	//this used to be empty if this fails
 
 	public void Enter(Enemy enemy){
 		this.rangedEnemy = enemy;
@@ -15,11 +16,14 @@ public class Ranged : EnemyStates{
 	public void Execute(){
 
 		doSpecialAttack ();
-		if (rangedEnemy.TargetCharacter != null) {
+		if (rangedEnemy.inMeleeRange) 
+		{
+			rangedEnemy.changeState(new CloseCombat());
+		}
+		else if (rangedEnemy.TargetCharacter != null) {
 
 			rangedEnemy.moveEnemy ();
 		} else {
-			Debug.Log ("fuck this");
 			rangedEnemy.changeState(new Idle());
 
 		}

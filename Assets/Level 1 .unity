@@ -537,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 208729340}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 151.990005, y: -1.88, z: 0}
+  m_LocalPosition: {x: 151.410004, y: -1.75, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1418353241}
@@ -1098,6 +1098,8 @@ MonoBehaviour:
   speed: 3
   magicSpell: {fileID: 161944, guid: 630e26f2f52a54a05a5dd21a225cda4e, type: 2}
   spellPosition: {fileID: 275878978}
+  meleeRange: .75
+  specialAttackRange: 7
 --- !u!50 &462854413
 Rigidbody2D:
   serializedVersion: 2
@@ -1774,9 +1776,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: .319999993, y: -.189999998}
+  m_Offset: {x: 1.63999999, y: .0199999996}
   serializedVersion: 2
-  m_Size: {x: 8.36999989, y: 1.73000002}
+  m_Size: {x: 10, y: 1.38999999}
 --- !u!114 &1067627800
 MonoBehaviour:
   m_ObjectHideFlags: 0

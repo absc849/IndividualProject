@@ -14,9 +14,10 @@ public class Patrol : EnemyStates {
 		Debug.Log("im on patrol");
 		patrol ();
 		patrollingEnemy.moveEnemy();
-		if (patrollingEnemy.TargetCharacter != null) {
+		if (patrollingEnemy.TargetCharacter != null && patrollingEnemy.inSpecialAttackRange) {
 			patrollingEnemy.changeState (new Ranged ());
 		} 
+
 	}
 	public void Exit(){}
 	public void OnTriggerEnter(Collider2D other)

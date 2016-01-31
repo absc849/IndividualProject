@@ -81,7 +81,7 @@ public class Player : Character {
 			PlayerRigidBody.velocity = new Vector2(horizontal * speed, PlayerRigidBody.velocity.y);
 		}
 
-		if(IsJumping && PlayerRigidBody.velocity.y == 0){
+		if(IsJumping && !IsAttacking && PlayerRigidBody.velocity.y == 0){
 			PlayerRigidBody.AddForce(new Vector2(0,jumpForce));
 		}
 		GameAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
@@ -127,9 +127,10 @@ public class Player : Character {
 	}
 	private void flipPlayer(float horizontal)
 	{
-		if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
-		{
-			changeDirection();
+		if (!IsAttacking) {
+			if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight) {
+				changeDirection ();
+			}
 		}
 	}
 
@@ -165,6 +166,7 @@ public class Player : Character {
 		}
 		*/
 		// f = 1 - in the air - 0 - on the ground, prevents two fireballs being shot at once
+
 		if(!OnTheGround && v == 1 || OnTheGround && v == 0)
 		{
 			base.doSpecialAttack(v);

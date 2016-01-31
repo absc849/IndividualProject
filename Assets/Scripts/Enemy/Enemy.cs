@@ -4,7 +4,13 @@ using System.Collections;
 public class Enemy : Character {
 
 	private EnemyStates currentState;
+	[SerializeField]
+	private float meleeRange;
+
+	[SerializeField]
+	private float specialAttackRange;
 	public GameObject TargetCharacter{ get; set;}
+
 	// Use this for initialization
 	public override void Start () {
 	
@@ -20,6 +26,31 @@ public class Enemy : Character {
 
 	
 	}
+
+	public bool inMeleeRange
+	{
+		get {
+			if(TargetCharacter !=null)
+			{
+				return Vector2.Distance(transform.position, TargetCharacter.transform.position) <= meleeRange;
+			}else{
+				return false;
+			}
+		}
+	}
+
+	public bool inSpecialAttackRange
+	{
+		get {
+			if(TargetCharacter !=null)
+			{
+				return Vector2.Distance(transform.position, TargetCharacter.transform.position) <= specialAttackRange;
+			}else{
+				return false;
+			}
+		}
+	}
+
 
 	private void lookForCharacter()
 	{
