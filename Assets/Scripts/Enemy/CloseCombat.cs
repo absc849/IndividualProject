@@ -5,7 +5,7 @@ public class CloseCombat : EnemyStates
 {
 	private Enemy meleeEnemy;
 	private float meleeAttackTimer;
-	private float meleeAttackWaitingTime = 3;
+	private float meleeAttackWaitingTime = 4;
 	private bool canStartCloseCombat = true;
 
 
@@ -14,6 +14,11 @@ public class CloseCombat : EnemyStates
 	}
 	public void Execute(){
 		doMeleeAttack ();
+		if (!meleeEnemy.inMeleeRange && meleeEnemy.inSpecialAttackRange) {
+			meleeEnemy.changeState (new Ranged ());
+		} else if (meleeEnemy.TargetCharacter == null) {
+			meleeEnemy.changeState(new Idle());
+		}
 
 	}
 	public void Exit(){}

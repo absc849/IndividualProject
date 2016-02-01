@@ -2,10 +2,14 @@
 using System.Collections;
 
 public abstract class Character : MonoBehaviour {
+	[SerializeField]
+	protected int health;
 
+	public abstract bool isDead{ get;}
 	public bool IsAttacking{ get; set;}
 	//protected Animator GameAnimator;
 	public Animator GameAnimator{ get; set;}
+	public bool TakingDamage{ get; set;}
 	[SerializeField]
 	protected float speed;
 	protected bool facingRight;
@@ -51,4 +55,13 @@ public abstract class Character : MonoBehaviour {
 		}
 	}
 
+	public abstract IEnumerator GetsHurt ();
+
+	public virtual void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "FireBall") {
+			StartCoroutine(GetsHurt());
+		}
+	}
+	
 }

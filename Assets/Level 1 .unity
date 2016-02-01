@@ -573,6 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e712d8b843c41e7b6c163eed9a3a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 50
   speed: 5
   magicSpell: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
   spellPosition: {fileID: 425019945}
@@ -703,7 +704,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 275878978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rangeVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1021,7 @@ GameObject:
   - 50: {fileID: 462854413}
   - 61: {fileID: 462854414}
   - 114: {fileID: 462854416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy1
   m_TagString: Enemy1
   m_Icon: {fileID: 0}
@@ -1095,6 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ae32fdd48dd4d74b63a75d1ec92d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 30
   speed: 3
   magicSpell: {fileID: 161944, guid: 630e26f2f52a54a05a5dd21a225cda4e, type: 2}
   spellPosition: {fileID: 275878978}
@@ -1747,7 +1749,7 @@ GameObject:
   - 4: {fileID: 1067627798}
   - 61: {fileID: 1067627799}
   - 114: {fileID: 1067627800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyVision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

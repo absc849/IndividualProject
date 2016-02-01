@@ -187,4 +187,22 @@ public class Player : Character {
 	
 	}
 
+	public override IEnumerator GetsHurt()
+	{
+//		health -= 10;
+//		if (!isDead) {
+//			GameAnimator.SetTrigger ("damage");
+//		} else {
+//			GameAnimator.SetTrigger("death");
+//			yield return null;
+//		}
+		yield return null;
+	}
+
+	public override bool isDead
+	{
+		get{
+			return health <=0;
+		}
+	}
 }

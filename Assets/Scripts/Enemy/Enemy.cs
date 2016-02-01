@@ -21,8 +21,13 @@ public class Enemy : Character {
 	// Update is called once per frame
 	void Update () {
 
-		currentState.Execute ();
-		lookForCharacter ();
+
+		if (!isDead) {
+			if(!TakingDamage){
+				currentState.Execute ();
+			}
+			lookForCharacter ();
+		}
 
 	
 	}
@@ -63,10 +68,9 @@ public class Enemy : Character {
 			}
 		}
 	}
-	public void OnTriggerEnter2D(Collider2D other)
+	public override void  OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("i hit the point");
-
+		base.OnTriggerEnter2D (other);
 		currentState.OnTriggerEnter (other);
 	}
 	public Vector2 getDirection()
@@ -103,6 +107,25 @@ public class Enemy : Character {
 		 }
 
 
+	}
 
+	public override IEnumerator GetsHurt()
+	{
+		health -= 10;
+		if (!isDead) {
+			GameAnimator.SetTrigger ("damage");
+		} else {
+			GameAnimator.SetTrigger("death");
+			yield return null;
+		}
+
+	}
+
+	public override bool isDead
+	{
+		get{
+			return health <=0;
+			Destroy(this);
+		}
 	}
 }
