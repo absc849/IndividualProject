@@ -528,7 +528,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300104, guid: 2cd5dea85c6ca48db9c86da9be247651, type: 3}
+  m_Sprite: {fileID: 21300174, guid: 2cd5dea85c6ca48db9c86da9be247651, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &208729343
 Transform:
@@ -544,6 +544,7 @@ Transform:
   - {fileID: 1667630110}
   - {fileID: 1178133987}
   - {fileID: 425019945}
+  - {fileID: 277315206}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!50 &208729344
@@ -574,6 +575,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  weaponCollider: {fileID: 277315207}
+  attackSources:
+  - Mace
+  - FireBall
   speed: 5
   magicSpell: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
   spellPosition: {fileID: 425019945}
@@ -723,6 +728,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462854411}
   m_RootOrder: 1
+--- !u!1 &277315205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 277315206}
+  - 68: {fileID: 277315207}
+  m_Layer: 0
+  m_Name: MaceCollider
+  m_TagString: Mace
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &277315206
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277315205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.77069855, y: .0550000072, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 208729343}
+  m_RootOrder: 4
+--- !u!68 &277315207
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277315205}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -3.02999997, y: 0}
+  m_Points:
+  - {x: -.302077055, y: -.127232909}
+  - {x: -.199873686, y: .0280771255}
+  - {x: -.0881946087, y: .0637588501}
+  - {x: -.0530230999, y: .010266304}
+  - {x: .0237743855, y: .0666873455}
+  - {x: .127228975, y: .109439611}
+  - {x: .174515963, y: .160466552}
+  - {x: .182053804, y: .199935198}
+  - {x: .285111666, y: .186442018}
+  - {x: .375138521, y: .141442537}
+  - {x: .397385836, y: .10698235}
+  - {x: .368317842, y: .0866601467}
+  - {x: .352296114, y: .0749067068}
+  - {x: .351655245, y: .040317893}
+  - {x: .359986544, y: .00706720352}
+  - {x: .356232882, y: -.0183016062}
+  - {x: .332932711, y: -.0271100998}
+  - {x: .286088228, y: -.0299152136}
+  - {x: .217789888, y: -.0511850119}
+  - {x: .154221773, y: -.0455038548}
+  - {x: -.266279936, y: -.171993613}
 --- !u!4 &322347850 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400498, guid: e6bcf1c4e4a4f44bf80ea505655a724f, type: 2}
@@ -1097,6 +1163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
+  weaponCollider: {fileID: 0}
+  attackSources:
+  - BossDagger
   speed: 3
   magicSpell: {fileID: 161944, guid: 630e26f2f52a54a05a5dd21a225cda4e, type: 2}
   spellPosition: {fileID: 275878978}
@@ -1749,6 +1818,7 @@ GameObject:
   - 4: {fileID: 1067627798}
   - 61: {fileID: 1067627799}
   - 114: {fileID: 1067627800}
+  - 114: {fileID: 1067627801}
   m_Layer: 8
   m_Name: EnemyVision
   m_TagString: Untagged
@@ -1793,6 +1863,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 462854412}
+--- !u!114 &1067627801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1067627797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2515bd4baff4ebdbb457d7403b02ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  other: {fileID: 277315207}
 --- !u!1001 &1148507342
 Prefab:
   m_ObjectHideFlags: 0

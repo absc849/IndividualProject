@@ -125,7 +125,7 @@ public class Enemy : Character {
 	{
 		get{
 			return health <=0;
-			Destroy(this);
+			//Destroy(this);
 		}
 	}
 }

@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class Character : MonoBehaviour {
 	[SerializeField]
 	protected int health;
+	[SerializeField]
+	private EdgeCollider2D weaponCollider;
+	[SerializeField]
+	private List<string> attackSources;
 
 	public abstract bool isDead{ get;}
 	public bool IsAttacking{ get; set;}
@@ -57,11 +62,22 @@ public abstract class Character : MonoBehaviour {
 
 	public abstract IEnumerator GetsHurt ();
 
+	public void MeleeAttack()
+	{
+		//weaponCollider.enabled = !weaponCollider.enabled;
+		weaponCollider.enabled = !weaponCollider;
+		Vector3 tmpPos = weaponCollider.transform.position;
+		weaponCollider.transform.position = new Vector3(weaponCollider.transform.position.x + 0,01, weaponCollider.transform.position.y);
+		weaponCollider.transform.position = tmpPos;
+	}
+
 	public virtual void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "FireBall") {
+		if (attackSources.Contains(other.tag)) {
 			StartCoroutine(GetsHurt());
 		}
 	}
+
+
 	
 }
