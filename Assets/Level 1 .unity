@@ -577,8 +577,8 @@ MonoBehaviour:
   health: 50
   weaponCollider: {fileID: 277315207}
   attackSources:
-  - Mace
-  - FireBall
+  - BossDagger
+  - BossPunch
   speed: 5
   magicSpell: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
   spellPosition: {fileID: 425019945}
@@ -764,7 +764,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 277315205}
   m_Enabled: 0
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: -3.02999997, y: 0}
   m_Points:
@@ -1149,6 +1149,7 @@ Transform:
   m_Children:
   - {fileID: 1067627798}
   - {fileID: 275878978}
+  - {fileID: 1873477869}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &462854412
@@ -1163,9 +1164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 30
-  weaponCollider: {fileID: 0}
+  weaponCollider: {fileID: 1873477870}
   attackSources:
-  - BossDagger
+  - Mace
+  - FireBall
   speed: 3
   magicSpell: {fileID: 161944, guid: 630e26f2f52a54a05a5dd21a225cda4e, type: 2}
   spellPosition: {fileID: 275878978}
@@ -2939,6 +2941,56 @@ BoxCollider2D:
   m_Offset: {x: 1.21000004, y: .730000019}
   serializedVersion: 2
   m_Size: {x: 4.23999977, y: .389999986}
+--- !u!1 &1873477868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1873477869}
+  - 68: {fileID: 1873477870}
+  m_Layer: 0
+  m_Name: MeleeCollider
+  m_TagString: BossPunch
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1873477869
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873477868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .215698242, y: .0500000119, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 462854411}
+  m_RootOrder: 2
+--- !u!68 &1873477870
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873477868}
+  m_Enabled: 0
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -.129211426, y: -.0118335485}
+  - {x: .0376739502, y: .122304797}
+  - {x: .0508270264, y: .180755615}
+  - {x: .160812378, y: .19855237}
+  - {x: .180633545, y: .162638545}
+  - {x: .157180786, y: .0161081553}
+  - {x: .100967407, y: -.444046378}
+  - {x: -.10774231, y: -.390945792}
+  - {x: -.264312744, y: -.416675448}
+  - {x: -.337509155, y: -.723551393}
 --- !u!4 &1878832990 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400498, guid: e6bcf1c4e4a4f44bf80ea505655a724f, type: 2}

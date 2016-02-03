@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2cd5dea85c6ca48db9c86da9be247651
-timeCreated: 1450116904
+timeCreated: 1454453612
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -259,8 +259,8 @@ TextureImporter:
         y: 2049
         width: 30
         height: 50
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .800000012}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Maya_1
       rect:
@@ -1999,8 +1999,8 @@ TextureImporter:
         y: 767
         width: 29
         height: 45
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .800000012}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Maya_175
       rect:
@@ -2009,8 +2009,8 @@ TextureImporter:
         y: 769
         width: 29
         height: 39
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .800000012}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Maya_176
       rect:
@@ -2019,8 +2019,8 @@ TextureImporter:
         y: 770
         width: 31
         height: 31
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .800000012}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Maya_177
       rect:
@@ -2029,8 +2029,8 @@ TextureImporter:
         y: 767
         width: 36
         height: 38
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .5, y: .75}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Maya_178
       rect:

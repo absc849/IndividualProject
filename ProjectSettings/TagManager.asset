@@ -9,6 +9,7 @@ TagManager:
   - BossDagger
   - FireBall
   - Mace
+  - BossPunch
   layers:
   - Default
   - TransparentFX

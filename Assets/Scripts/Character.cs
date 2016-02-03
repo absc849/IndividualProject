@@ -64,11 +64,14 @@ public abstract class Character : MonoBehaviour {
 
 	public void MeleeAttack()
 	{
+		weaponCollider.enabled = !weaponCollider.enabled;
+//		weaponCollider.enabled = true;
+
+//			Vector3 tmpPos = weaponCollider.transform.position;
+//			weaponCollider.transform.position = new Vector3 (weaponCollider.transform.position.x + 0, 01, weaponCollider.transform.position.y);
+//			weaponCollider.transform.position = tmpPos;
+
 		//weaponCollider.enabled = !weaponCollider.enabled;
-		weaponCollider.enabled = !weaponCollider;
-		Vector3 tmpPos = weaponCollider.transform.position;
-		weaponCollider.transform.position = new Vector3(weaponCollider.transform.position.x + 0,01, weaponCollider.transform.position.y);
-		weaponCollider.transform.position = tmpPos;
 	}
 
 	public virtual void OnTriggerEnter2D(Collider2D other)
