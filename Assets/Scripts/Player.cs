@@ -267,7 +267,7 @@ public class Player : Character {
 	public override void CharacterDemise()
 	{
 		PlayerRigidBody.velocity = Vector2.zero;
-		GameAnimator.SetTrigger("Idle");
+		GameAnimator.SetTrigger("idle");
 		health = spawnHealth;
 		transform.position = startPos;
 	}
