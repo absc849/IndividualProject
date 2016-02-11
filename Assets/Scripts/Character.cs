@@ -7,8 +7,20 @@ public abstract class Character : MonoBehaviour {
 	protected int health;
 	[SerializeField]
 	private EdgeCollider2D weaponCollider;
+
+
+	public EdgeCollider2D getWeaponCollider
+	{
+		get{
+			return weaponCollider;
+		}
+	}
+
+	public abstract void CharacterDemise ();
+
 	[SerializeField]
 	private List<string> attackSources;
+
 
 	public abstract bool isDead{ get;}
 	public bool IsAttacking{ get; set;}
@@ -64,18 +76,20 @@ public abstract class Character : MonoBehaviour {
 
 	public void MeleeAttack()
 	{
-		weaponCollider.enabled = !weaponCollider.enabled;
-//		weaponCollider.enabled = true;
-
+//		weaponCollider.enabled = !weaponCollider.enabled;
+		getWeaponCollider.enabled = true;
+//
 //			Vector3 tmpPos = weaponCollider.transform.position;
 //			weaponCollider.transform.position = new Vector3 (weaponCollider.transform.position.x + 0, 01, weaponCollider.transform.position.y);
 //			weaponCollider.transform.position = tmpPos;
 
-		//weaponCollider.enabled = !weaponCollider.enabled;
+	//	weaponCollider.enabled = false;
+
 	}
 
 	public virtual void OnTriggerEnter2D(Collider2D other)
 	{
+		//make another list with enemy vision and make if statement if the tag does not equal to the vision then do the next thing	
 		if (attackSources.Contains(other.tag)) {
 			StartCoroutine(GetsHurt());
 		}

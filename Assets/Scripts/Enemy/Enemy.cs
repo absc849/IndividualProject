@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Enemy : Character {
 
 	private EnemyStates currentState;
@@ -15,6 +16,7 @@ public class Enemy : Character {
 	public override void Start () {
 	
 		base.Start ();
+		Player.PlayerInstance.Death += new DeathHandler (removeTarget);
 		changeState (new Idle ());
 	}
 	
@@ -47,7 +49,7 @@ public class Enemy : Character {
 	public bool inSpecialAttackRange
 	{
 		get {
-			if(TargetCharacter !=null)
+			if(TargetCharacter != null)
 			{
 				return Vector2.Distance(transform.position, TargetCharacter.transform.position) <= specialAttackRange;
 			}else{
@@ -67,6 +69,12 @@ public class Enemy : Character {
 				changeDirection();
 			}
 		}
+	}
+
+	private void removeTarget()
+	{
+		TargetCharacter = null;
+		changeState (new Patrol ());
 	}
 	public override void  OnTriggerEnter2D(Collider2D other)
 	{
@@ -127,5 +135,10 @@ public class Enemy : Character {
 			return health <=0;
 			//Destroy(this);
 		}
+	}
+
+	public override void CharacterDemise()
+	{
+		Destroy (gameObject);
 	}
 }

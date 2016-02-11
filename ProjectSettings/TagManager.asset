@@ -10,6 +10,7 @@ TagManager:
   - FireBall
   - Mace
   - BossPunch
+  - Boss1Vision
   layers:
   - Default
   - TransparentFX

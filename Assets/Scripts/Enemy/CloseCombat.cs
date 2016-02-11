@@ -36,6 +36,7 @@ public class CloseCombat : EnemyStates
 			canStartCloseCombat = false;
 			
 			meleeEnemy.GameAnimator.SetTrigger("attacking");
+		//	meleeEnemy.MeleeAttack();
 		}
 		
 	}

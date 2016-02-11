@@ -1,12 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+public delegate void DeathHandler();
+
 public class Player : Character {
 	//public properties
 	public Rigidbody2D PlayerRigidBody{ get; set;}
 	public bool IsJumping{ get; set;}
 	public bool OnTheGround{ get; private set;}
+	private bool tempImmortal = false;
 
+	private Vector3 startPos = new Vector3(151.41f,-1.75f,0.0f);
+	[SerializeField]
+	private float immortalityTime;
+
+	[SerializeField]
+	protected int spawnHealth;
+
+	public event DeathHandler Death;
+	private SpriteRenderer playerRenderer;
 	//animator will use this
 	private static Player player_instance;
 	public static Player PlayerInstance
@@ -48,26 +61,39 @@ public class Player : Character {
 	public override void Start () 
 	{	
 		base.Start ();
-
+		transform.position = startPos;
+		playerRenderer = GetComponent<SpriteRenderer> ();
 		PlayerRigidBody = GetComponent<Rigidbody2D>();
 	}
 
 	void Update()
 	{
-		handleInput ();
+
+		if (!TakingDamage && !isDead) {
+			if(transform.position.y <= -7.15)
+			{
+				CharacterDemise();
+			}
+			//-7.15
+			handleInput ();
+
+		}
 	}
 	// Fixed Update is called once per frame
 	void FixedUpdate() 
 	{
-		float horizontal = Input.GetAxis ("Horizontal");
-		OnTheGround = onGround();
-
-		handleMovement (horizontal);
-		flipPlayer(horizontal);
-		HandleLayers ();
-
+		if (!TakingDamage && !isDead) {
+			float horizontal = Input.GetAxis ("Horizontal");
+			OnTheGround = onGround();
+			
+			handleMovement (horizontal);
+			flipPlayer(horizontal);
+			HandleLayers ();
+		}
 	
+
 	}
+
 
 
 	private void handleMovement(float horizontal)
@@ -187,22 +213,62 @@ public class Player : Character {
 	
 	}
 
+	private IEnumerator showImmortality()
+	{
+		// also add to boss character
+		while (tempImmortal) {
+			playerRenderer.enabled = false;
+			yield return new WaitForSeconds(0.1f);
+			playerRenderer.enabled = true;
+			yield return new WaitForSeconds(0.1f);
+
+		}
+	}
+
 	public override IEnumerator GetsHurt()
 	{
-		health -= 10;
-		if (!isDead) {
-			GameAnimator.SetTrigger ("damage");
-		} else {
-			GameAnimator.SetLayerWeight(1,0);
-			GameAnimator.SetTrigger("death");
+		// add this to boss characters 
+		if (!tempImmortal) {
+			health -= 10;
+			if (!isDead) {
+				GameAnimator.SetTrigger ("damage");
+				tempImmortal = true;
+				StartCoroutine(showImmortality());
+				yield return new WaitForSeconds(immortalityTime);
+				tempImmortal = false;
+			} else {
+				GameAnimator.SetLayerWeight(1,0);
+				GameAnimator.SetTrigger("death");
+			}
 		}
-		yield return null;
+	
+	}
+
+	public void triggerDeath()
+	{
+		if (Death != null) 
+		{
+			Death();
+		}
 	}
 
 	public override bool isDead
 	{
 		get{
+			if(health <= 0)
+			{
+				triggerDeath();
+
+			}
 			return health <=0;
 		}
+	}
+
+	public override void CharacterDemise()
+	{
+		PlayerRigidBody.velocity = Vector2.zero;
+		GameAnimator.SetTrigger("Idle");
+		health = spawnHealth;
+		transform.position = startPos;
 	}
 }
