@@ -1,9 +1,45 @@
 fileFormatVersion: 2
 guid: 7eb264d1321cd4e66b4d9ecf4be80fde
-timeCreated: 1453808969
+timeCreated: 1453897882
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: skullchick_0
+    21300002: skullchick_1
+    21300004: skullchick_2
+    21300006: skullchick_3
+    21300008: skullchick_4
+    21300010: skullchick_5
+    21300012: skullchick_6
+    21300014: skullchick_7
+    21300016: skullchick_8
+    21300018: skullchick_9
+    21300020: skullchick_10
+    21300022: skullchick_11
+    21300024: skullchick_12
+    21300026: skullchick_13
+    21300028: skullchick_14
+    21300030: skullchick_15
+    21300032: skullchick_16
+    21300034: skullchick_17
+    21300036: skullchick_18
+    21300038: skullchick_19
+    21300040: skullchick_20
+    21300042: skullchick_21
+    21300044: skullchick_22
+    21300046: skullchick_23
+    21300048: skullchick_24
+    21300050: skullchick_25
+    21300052: skullchick_26
+    21300054: skullchick_27
+    21300056: skullchick_28
+    21300058: skullchick_29
+    21300060: skullchick_30
+    21300062: skullchick_31
+    21300064: skullchick_32
+    21300066: skullchick_33
+    21300068: skullchick_34
+    21300070: skullchick_35
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +66,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +74,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +85,367 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: skullchick_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 360
+        width: 43
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_1
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 360
+        width: 40
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 360
+        width: 40
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_3
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 360
+        width: 40
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_4
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 360
+        width: 40
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 270
+        width: 36
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 271
+        width: 36
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_7
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 272
+        width: 39
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 271
+        width: 36
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 270
+        width: 36
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_10
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 271
+        width: 35
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_11
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 272
+        width: 39
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_12
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 271
+        width: 35
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_13
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 180
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 181
+        width: 36
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_15
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 182
+        width: 39
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 181
+        width: 36
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_17
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 180
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_18
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 181
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_19
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 182
+        width: 39
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_20
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 181
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_21
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 90
+        width: 36
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 90
+        width: 36
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1
+        width: 40
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_24
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 90
+        width: 43
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_25
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 90
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_26
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 90
+        width: 37
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_27
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 90
+        width: 40
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_28
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 90
+        width: 44
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_29
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 33
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_30
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 33
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_31
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 33
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_32
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 0
+        width: 34
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_33
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 0
+        width: 32
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_34
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 1
+        width: 32
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: skullchick_35
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 32
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
