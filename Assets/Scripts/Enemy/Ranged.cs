@@ -14,7 +14,7 @@ public class Ranged : EnemyStates{
 		this.rangedEnemy = enemy;
 	}
 	public void Execute(){
-
+		Debug.Log ("I SEE YOU");
 		doSpecialAttack ();
 		if (rangedEnemy.inMeleeRange) 
 		{

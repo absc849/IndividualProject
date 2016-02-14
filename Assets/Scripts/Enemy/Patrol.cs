@@ -22,11 +22,13 @@ public class Patrol : EnemyStates {
 	public void Exit(){}
 	public void OnTriggerEnter(Collider2D other)
 	{
+		/*
 		if (other.tag == "TurningPoint") {
 			Debug.Log("i hit the point D:");
 			patrollingEnemy.changeDirection();
 
 		}
+		*/
 
 		if (other.tag == "FireBall" || other.tag == "Mace") 
 		{

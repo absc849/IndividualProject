@@ -12,6 +12,10 @@ public class Enemy : Character {
 	private float specialAttackRange;
 	public GameObject TargetCharacter{ get; set;}
 
+	[SerializeField]
+	private Transform turningPointL;
+	[SerializeField]
+	private Transform turningPointR;
 	// Use this for initialization
 	public override void Start () {
 	
@@ -106,12 +110,22 @@ public class Enemy : Character {
 	public void moveEnemy()
 	{
 		//edit if statement so enemy 1 can still move
-		Debug.Log("moving");
+		//Debug.Log("moving");
 		if(!IsAttacking)
 		{
-			GameAnimator.SetFloat ("speed", 1);
-			//multiplying it by the time makes sure that no matter what computer you use the enemy is at a normal speed
-			transform.Translate (getDirection () * (speed * Time.deltaTime));
+			if(getDirection().x > 0 && transform.position.x < turningPointR.position.x || 
+			   getDirection().x < 0 && transform.position.x > turningPointL.position.x) // stops enemy chasing player off the platform
+			{
+				GameAnimator.SetFloat ("speed", 1);
+				//multiplying it by the time makes sure that no matter what computer you use the enemy is at a normal speed
+				transform.Translate (getDirection () * (speed * Time.deltaTime));
+			}
+			else if(currentState is Patrol)
+			{
+				changeDirection();
+			}
+
+
 		 }
 
 
