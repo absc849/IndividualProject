@@ -7,6 +7,7 @@ public abstract class Character : MonoBehaviour {
 	protected int health;
 	[SerializeField]
 	private EdgeCollider2D weaponCollider;
+	
 
 
 	public EdgeCollider2D getWeaponCollider

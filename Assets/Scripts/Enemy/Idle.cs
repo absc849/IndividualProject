@@ -21,7 +21,12 @@ public class Idle : EnemyStates{
 	}
 
 	public void Exit(){}
-	public void OnTriggerEnter(Collider2D other){}
+	public void OnTriggerEnter(Collider2D other){
+		if (other.tag == "FireBall" || other.tag == "Mace") 
+		{
+			enemy.TargetCharacter = Player.PlayerInstance.gameObject;
+		}
+	}
 
 	private void idle()
 	{

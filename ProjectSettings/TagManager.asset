@@ -11,6 +11,8 @@ TagManager:
   - Mace
   - BossPunch
   - Boss1Vision
+  - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX

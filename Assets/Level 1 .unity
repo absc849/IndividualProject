@@ -739,6 +739,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 277315206}
   - 68: {fileID: 277315207}
+  - 114: {fileID: 277315208}
   m_Layer: 0
   m_Name: MaceCollider
   m_TagString: Mace
@@ -791,6 +792,20 @@ EdgeCollider2D:
   - {x: .217789888, y: -.0511850119}
   - {x: .154221773, y: -.0455038548}
   - {x: -.266279936, y: -.171993613}
+--- !u!114 &277315208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 277315205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f11981e1b8442aa8adb3f4fd0dd298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTags:
+  - Boss
+  - Enemy
 --- !u!4 &322347850 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400498, guid: e6bcf1c4e4a4f44bf80ea505655a724f, type: 2}
@@ -1823,6 +1838,7 @@ GameObject:
   - 61: {fileID: 1067627799}
   - 114: {fileID: 1067627800}
   - 114: {fileID: 1067627801}
+  - 50: {fileID: 1067627802}
   m_Layer: 8
   m_Name: EnemyVision
   m_TagString: Untagged
@@ -1879,6 +1895,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   other: {fileID: 277315207}
+--- !u!50 &1067627802
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1067627797}
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1148507342
 Prefab:
   m_ObjectHideFlags: 0
@@ -2952,6 +2984,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1873477869}
   - 68: {fileID: 1873477870}
+  - 114: {fileID: 1873477871}
   m_Layer: 0
   m_Name: MeleeCollider
   m_TagString: BossPunch
@@ -2993,6 +3026,19 @@ EdgeCollider2D:
   - {x: -.10774231, y: -.390945792}
   - {x: -.264312744, y: -.416675448}
   - {x: -.337509155, y: -.723551393}
+--- !u!114 &1873477871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873477868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f11981e1b8442aa8adb3f4fd0dd298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTags:
+  - Player
 --- !u!4 &1878832990 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400498, guid: e6bcf1c4e4a4f44bf80ea505655a724f, type: 2}

@@ -27,6 +27,11 @@ public class Patrol : EnemyStates {
 			patrollingEnemy.changeDirection();
 
 		}
+
+		if (other.tag == "FireBall" || other.tag == "Mace") 
+		{
+			patrollingEnemy.TargetCharacter = Player.PlayerInstance.gameObject;
+		}
 	}
 
 	private void patrol()
