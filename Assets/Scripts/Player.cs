@@ -10,8 +10,9 @@ public class Player : Character {
 	public bool IsJumping{ get; set;}
 	public bool OnTheGround{ get; private set;}
 	private bool tempImmortal = false;
+	public bool canFightBoss{ get; set;} 
 
-	private Vector3 startPos = new Vector3(151.41f,-1.75f,0.0f);
+	private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
 	[SerializeField]
 	private float immortalityTime;
 
@@ -112,6 +113,8 @@ public class Player : Character {
 		}
 		GameAnimator.SetFloat ("speed", Mathf.Abs (horizontal));
 	}
+
+	//posibly make a function that sets the trigger to spawn the boss when x position is in a certain point???
 
 //	private void handleAttacks()
 //	{

@@ -6,9 +6,10 @@ public class Idle : EnemyStates{
 	private Enemy enemy;
 
 	private float idleTimer;
-	private float idleTimeSpan = 2f;
+	private float idleTimeSpan;
 
 	public void Enter(Enemy enemy){
+		idleTimeSpan = Random.Range (1, 5);
 		this.enemy = enemy;
 	}
 	public void Execute(){

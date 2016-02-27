@@ -5,9 +5,10 @@ public class Patrol : EnemyStates {
 
 	private Enemy patrollingEnemy;
 	private float patrolTimer;
-	private float patrolTimeSpan = 8f;
+	private float patrolTimeSpan;
 
 	public void Enter(Enemy enemy){
+		patrolTimeSpan = Random.Range (2, 8);
 		this.patrollingEnemy = enemy;
 	}
 	public void Execute(){

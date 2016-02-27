@@ -7,7 +7,7 @@ public class WeaponCollider : MonoBehaviour {
 	[SerializeField]
 	private List<string> targetTags;
 
-	void OnTriggerEnter(Collider2D other)
+	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (targetTags.Contains(other.tag))
 		{
