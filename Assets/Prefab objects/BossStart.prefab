@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ede6889d7ef0f49f8aa5354ae6a0c688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 168448, guid: f83d0b97f9e5e4c9e8cdaa9e489c6f0b, type: 2}
+  boss: {fileID: 171154, guid: f83d0b97f9e5e4c9e8cdaa9e489c6f0b, type: 2}
   barrier: {fileID: 6164364}
 --- !u!1001 &100100000
 Prefab:

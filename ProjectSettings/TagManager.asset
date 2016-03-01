@@ -13,6 +13,9 @@ TagManager:
   - Boss1Vision
   - Boss
   - Enemy
+  - RockProjectile
+  - EnemyPunch
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

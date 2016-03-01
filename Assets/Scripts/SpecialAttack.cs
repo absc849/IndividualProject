@@ -20,7 +20,11 @@ public class SpecialAttack : MonoBehaviour {
 	{
 		specialRigidBody.velocity = attackDirection * attackSpeed;
 	}
-	
+
+	void OnCollisionEnter()
+	{
+		Destroy (gameObject);
+	}
 	void OnBecameInvisible()
 	{
 		Destroy (gameObject);
