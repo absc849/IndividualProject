@@ -12,7 +12,9 @@ public class Player : Character {
 	private bool tempImmortal = false;
 	public bool canFightBoss{ get; set;} 
 
-	private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
+	//private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
+	private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
+
 	[SerializeField]
 	private float immortalityTime;
 
@@ -235,6 +237,7 @@ public class Player : Character {
 			health -= 10;
 			if (!isDead) {
 				GameAnimator.SetTrigger ("damage");
+				Debug.Log ("ouch");
 				tempImmortal = true;
 				StartCoroutine(showImmortality());
 				yield return new WaitForSeconds(immortalityTime);

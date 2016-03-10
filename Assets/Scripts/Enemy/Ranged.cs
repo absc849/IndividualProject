@@ -6,7 +6,7 @@ public class Ranged : EnemyStates{
 	private Enemy rangedEnemy;
 
 	private float attackTimer;
-	private float attackWaitingTime = 2;
+	private float attackWaitingTime = 3;
 	private bool canDoSpecial = true;
 	//this used to be empty if this fails
 

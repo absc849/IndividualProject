@@ -16,6 +16,10 @@ TagManager:
   - RockProjectile
   - EnemyPunch
   - EnemyProjectile
+  - Green
+  - Red
+  - Blue
+  - Note
   layers:
   - Default
   - TransparentFX

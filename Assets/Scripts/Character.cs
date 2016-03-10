@@ -63,11 +63,15 @@ public abstract class Character : MonoBehaviour {
 		Debug.Log ("doin special");
 		if (facingRight) {
 			GameObject tmp = (GameObject)Instantiate(magicSpell, spellPosition.position, Quaternion.identity);
+			Debug.Log ("yo");
+
 			tmp.GetComponent<SpecialAttack>().Initialize(Vector2.right);
 		} 
 		else 
 		{
 			GameObject tmp2 =(GameObject)Instantiate(magicSpell, spellPosition.position, Quaternion.Euler(new Vector3(0,0,180)));
+			Debug.Log ("yo");
+
 			tmp2.GetComponent<SpecialAttack>().Initialize(Vector2.left);
 			
 		}
