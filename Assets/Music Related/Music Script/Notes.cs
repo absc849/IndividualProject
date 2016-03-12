@@ -3,16 +3,21 @@ using System.Collections;
 
 public class Notes : MonoBehaviour {
 
+	private Rigidbody2D noteRigidBody;
+	private Vector2 noteSpeed;
 
 	// Use this for initialization
 	void Start () {
+		noteSpeed = new Vector2 (0, -10);
+		noteRigidBody = GetComponent<Rigidbody2D> ();
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-		transform.Translate(Vector3(0,-5,0) * Time.deltaTime);
+
+		//noteRigidBody.transform.Translate(Vector2.up * Time.deltaTime);
+		noteRigidBody.velocity = noteSpeed * Time.deltaTime;
 
 
 	}
@@ -22,7 +27,7 @@ public class Notes : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void IsVisible()
-	{}
+//	void IsVisible()
+//	{}
 
 }
