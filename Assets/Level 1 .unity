@@ -2496,6 +2496,7 @@ GameObject:
   - 4: {fileID: 1528231574}
   - 114: {fileID: 1528231575}
   - 114: {fileID: 1528231576}
+  - 61: {fileID: 1528231577}
   m_Layer: 0
   m_Name: NoteButtons
   m_TagString: Untagged
@@ -2544,10 +2545,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20e31f3539584e05abd07e0ada419be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notes:
-  - {fileID: 125906, guid: 67118c683bb47492fa3dac308608b3e1, type: 2}
-  - {fileID: 136016, guid: 4ba00be6aaaa24730b2afc861d6f44d5, type: 2}
-  - {fileID: 190334, guid: 94b2892cbb8714f268ac8a82b4d78038, type: 2}
+  note1: {fileID: 125906, guid: 67118c683bb47492fa3dac308608b3e1, type: 2}
+  note2: {fileID: 136016, guid: 4ba00be6aaaa24730b2afc861d6f44d5, type: 2}
+  note3: {fileID: 190334, guid: 94b2892cbb8714f268ac8a82b4d78038, type: 2}
+  songLength: 0
+  num1: 49
+  num2: 50
+  num3: 51
+--- !u!61 &1528231577
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1528231573}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -3.55999994, y: .519999981}
+  serializedVersion: 2
+  m_Size: {x: 2.8599999, y: 1}
 --- !u!1 &1558856351
 GameObject:
   m_ObjectHideFlags: 0
