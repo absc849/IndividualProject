@@ -50,6 +50,8 @@ public class AttackSong : MonoBehaviour {
 	private float tempPos3 = 0;
 
 	public AudioSource AS;
+
+
 	/*
 	private float songSpeed;
 	private float bpm1 = 111f;
@@ -65,9 +67,11 @@ public class AttackSong : MonoBehaviour {
 	void Start () {
 
 		//enable 
-		AS = GetComponent<AudioSource> ();
-		songIsPlaying = true;
-
+		while (Player.PlayerInstance.usingRhythm == true) {
+			AS = GetComponent<AudioSource> ();
+			songIsPlaying = true;
+			Player.PlayerInstance.usingRhythm = true;
+		}
 		note1Target = GameObject.Find ("Red Note Button").transform;
 		note2Target = GameObject.Find ("Blue Note Button").transform;
 		note3Target = GameObject.Find ("Green Note Button").transform;
@@ -127,40 +131,25 @@ public class AttackSong : MonoBehaviour {
 			pickNoteValue += 1;
 		}
 
-
-
-		/*
-		if((songLength >= .1) && (songLength <= .125))
+		if (pickNoteValue == 9 && Notes.maxNotes == 0) 
 		{
-			Instantiate (note1, new Vector3 (tempPos1, (note1Target.position.y + 4), 0), Quaternion.identity);
-
+			StartCoroutine("StopAttack");
 		}
-		 
-		if((songLength >= 1) && (songLength <= 1.025))
-		{
-			Instantiate (note2, new Vector3 (tempPos2, (note2Target.position.y + 4), 0), Quaternion.identity);
-			
-		}
-		if((songLength >= 1.75) && (songLength <= 1.775))
-		{
-			Instantiate (note3, new Vector3 (tempPos3, (note3Target.position.y + 4), 0), Quaternion.identity);
-			
-		}
-		if((songLength >= 2.75) && (songLength <= 2.775))
-		{
-			Instantiate (note2, new Vector3 (tempPos2, (note2Target.position.y + 4), 0), Quaternion.identity);
-			
-		}
-		if((songLength >= 3.5) && (songLength <= 3.525))
-		{
-			Instantiate (note1, new Vector3 (tempPos1, (note1Target.position.y + 4), 0), Quaternion.identity);
-			
-		}
-		*/
 
 
 
 
+
+
+
+	}
+
+	private IEnumerator stopAttack()
+	{
+		yield return new WaitForSeconds (2.0f);
+		pickNoteValue = 0;
+		Notes.maxNotes = 0;
+		Player.PlayerInstance.usingRhythm = false;
 
 
 	}
@@ -170,14 +159,19 @@ public class AttackSong : MonoBehaviour {
 		if ((Input.GetKeyDown (num1)) && (other.gameObject.name == "Red Note(Clone)")) 
 		{
 			destroyNote1 = "yes";
+			Notes.maxNotes--;
 		}
 		if ((Input.GetKeyDown (num2)) && (other.gameObject.name == "Blue Note(Clone)")) 
 		{
 			destroyNote2 = "yes";
+			Notes.maxNotes--;
+
 		}
 		if ((Input.GetKeyDown (num3)) && (other.gameObject.name == "Green Note(Clone)")) 
 		{
 			destroyNote3 = "yes";
+			Notes.maxNotes--;
+
 		}
 	}
 

@@ -8,6 +8,8 @@ public class Notes : MonoBehaviour {
 	private Vector2 noteSpeed;
 	private Transform attackNoteTarget;
 
+	public static int maxNotes = 10;
+
 	/*
 	private float bpm1 = 111;
 	private float crotchet;
@@ -98,6 +100,7 @@ public class Notes : MonoBehaviour {
 		GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1);
 		//play sound effect 
 		Destroy (gameObject, 0.35f);
+		maxNotes--;
 
 
 	}

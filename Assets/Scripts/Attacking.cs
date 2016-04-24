@@ -32,7 +32,10 @@ public class Attacking : StateMachineBehaviour {
 		animator.ResetTrigger("attacking");
 		animator.ResetTrigger("fireball");
 		animator.ResetTrigger ("specialMove");
-		animator.ResetTrigger ("rhythmAttack");
+		if (Player.PlayerInstance.usingRhythm == false) {
+			animator.ResetTrigger ("rhythmAttack");
+		}
+
 
 	}
 

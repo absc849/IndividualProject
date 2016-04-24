@@ -10,7 +10,9 @@ public class Player : Character {
 	public bool IsJumping{ get; set;}
 	public bool OnTheGround{ get; private set;}
 	private bool tempImmortal = false;
+	public bool usingRhythm{ get; set;}
 	public bool canFightBoss{ get; set;} 
+
 
 	//private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
 	private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
@@ -151,6 +153,10 @@ public class Player : Character {
 
 		if (Input.GetKeyDown (KeyCode.X)) {
 			GameAnimator.SetTrigger("fireball");
+			//shootFire(0);
+		}
+		if (Input.GetKeyDown (KeyCode.C)) {
+			GameAnimator.SetTrigger("rhythmAttack");
 			//shootFire(0);
 		}
 
