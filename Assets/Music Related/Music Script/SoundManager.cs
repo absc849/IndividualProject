@@ -6,11 +6,33 @@ public class SoundManager : MonoBehaviour {
 	//uncomment this when needed
 	//public AudioSource fx;
 	public AudioSource gameMusic1;
+	public AudioClip MainClip;
 	public static SoundManager instance = null;
-
+	/*
+	float waitTime = 6.0f;
+	float timeTime;
+	*/
 
 //	public float lowPitchVariation = 0.95f;
 //	public float highPitchVariation = 1.06f;
+
+
+	private static SoundManager sound_instance;
+	public static SoundManager SoundInstance
+	{
+		get
+		{
+			if(sound_instance == null)
+			{
+				sound_instance = GameObject.FindObjectOfType<SoundManager>();
+			}
+			return sound_instance;
+		}
+		//this type of method is a singleton cant use it for enemies because its meant to be used on a single object
+		//this one object can be accessed at all times
+		// could be used for specific enemies 
+		
+	}
 
 	void Awake () {
 
@@ -23,15 +45,34 @@ public class SoundManager : MonoBehaviour {
 		}
 		DontDestroyOnLoad(gameObject);
 	
+
+		//PlayMusic (MainClip);
+		StartCoroutine ("WaitAndPlay", 2.0f);
+
+		/*
+		if (timeTime >= waitTime) {
+			StopCoroutine("WaitAndPlay");
+		}
+		*/
+		//StopCoroutine (WaitAndPlay (5.0f));
+
 	}
 
 
-	/*
-	public void PlayMusic()
+
+	public void PlayMusic(AudioClip clip)
 	{
-		gameMusic1
+		gameMusic1.clip = clip;
+		gameMusic1.Play ();
 	}
-	*/
+
+	IEnumerator WaitAndPlay(float waitTime) {
+		yield return new WaitForSeconds(waitTime);
+		gameMusic1.clip = MainClip;
+		gameMusic1.Play ();
+
+	}
+
 	/*
 
 	public void PlaySingleAudio(AudioClip clip)

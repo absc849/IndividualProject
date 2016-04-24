@@ -9,6 +9,8 @@ public class AttackSong : MonoBehaviour {
 	private Transform note3Target;
 	public Transform scoreObj;
 
+//	AttackSong.enabled = false;
+
 	//List<float> noteSelection = new List<float>() {0.1f,3.0f,6.0f,9.0f,12.0f,15.0f,18.0f,21.0f,25.0f,29.5f} ;
 
 	List<float> noteSelection = new List<float>() {0.50f,1.0f,1.5f,2.0f,2.5f,3.0f,3.5f,4.0f,4.5f,5.0f} ; 
@@ -33,6 +35,8 @@ public class AttackSong : MonoBehaviour {
 	public static string destroyNote1 = "no";
 	public static string destroyNote2 = "no";
 	public static string destroyNote3 = "no";
+
+	public static bool songIsPlaying;
 	
 
 	public static int correctNotes = 0;
@@ -45,6 +49,7 @@ public class AttackSong : MonoBehaviour {
 	private float tempPos2 = 0;
 	private float tempPos3 = 0;
 
+	public AudioSource AS;
 	/*
 	private float songSpeed;
 	private float bpm1 = 111f;
@@ -54,17 +59,14 @@ public class AttackSong : MonoBehaviour {
 	*/
 
 
-	public SoundManager sm;
 
 
 	// Use this for initialization
 	void Start () {
-		//songTarget = GameObject.Find ("NoteButtons").transform;
 
 		//enable 
-		sm = GetComponent<SoundManager> ();
-
-		//sm.
+		AS = GetComponent<AudioSource> ();
+		songIsPlaying = true;
 
 		note1Target = GameObject.Find ("Red Note Button").transform;
 		note2Target = GameObject.Find ("Blue Note Button").transform;
@@ -103,6 +105,13 @@ public class AttackSong : MonoBehaviour {
 
 		// when you add more notes increment the [9]
 		if ((songLength >= noteSelection [pickNoteValue]) && (songLength <= noteSelection [9] )) {
+			if(songIsPlaying)
+			{
+				SoundManager.SoundInstance.StopCoroutine ("WaitAndPlay");
+				AS.Play();
+				songIsPlaying = false;
+			}
+
 			if (pickNoteValue == 0 || pickNoteValue == 3 || pickNoteValue == 7) {
 				Instantiate (note1, new Vector3 (tempPos1, (note1Target.position.y + 4), 0), Quaternion.identity);
 			}
@@ -117,6 +126,7 @@ public class AttackSong : MonoBehaviour {
 
 			pickNoteValue += 1;
 		}
+
 
 
 		/*

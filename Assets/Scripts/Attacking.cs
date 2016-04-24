@@ -32,6 +32,8 @@ public class Attacking : StateMachineBehaviour {
 		animator.ResetTrigger("attacking");
 		animator.ResetTrigger("fireball");
 		animator.ResetTrigger ("specialMove");
+		animator.ResetTrigger ("rhythmAttack");
+
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
