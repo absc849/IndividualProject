@@ -66,6 +66,7 @@ public class Player : Character {
 	public override void Start () 
 	{	
 		base.Start ();
+		usingRhythm = false;
 		transform.position = startPos;
 		playerRenderer = GetComponent<SpriteRenderer> ();
 		PlayerRigidBody = GetComponent<Rigidbody2D>();
@@ -156,6 +157,7 @@ public class Player : Character {
 			//shootFire(0);
 		}
 		if (Input.GetKeyDown (KeyCode.C)) {
+
 			GameAnimator.SetTrigger("rhythmAttack");
 			//shootFire(0);
 		}

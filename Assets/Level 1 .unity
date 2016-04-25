@@ -2690,6 +2690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreObj: {fileID: 1609741367}
+  NoteButtons: {fileID: 0}
   pickNoteValue: 0
   note1: {fileID: 125906, guid: 67118c683bb47492fa3dac308608b3e1, type: 2}
   note2: {fileID: 136016, guid: 4ba00be6aaaa24730b2afc861d6f44d5, type: 2}

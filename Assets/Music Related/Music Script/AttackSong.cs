@@ -9,7 +9,9 @@ public class AttackSong : MonoBehaviour {
 	private Transform note3Target;
 	public Transform scoreObj;
 
-//	AttackSong.enabled = false;
+	public GameObject NoteButtons;
+
+	//AttackSong.enabled = false;
 
 	//List<float> noteSelection = new List<float>() {0.1f,3.0f,6.0f,9.0f,12.0f,15.0f,18.0f,21.0f,25.0f,29.5f} ;
 
@@ -66,15 +68,22 @@ public class AttackSong : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		//PlayerRigidBody = GetComponent<Rigidbody2D>();
+		NoteButtons = GameObject.Find ("NoteButtons");
+		NoteButtons.SetActive (false);
 		//enable 
-		while (Player.PlayerInstance.usingRhythm == true) {
+	while (Player.PlayerInstance.usingRhythm == true) {
 			AS = GetComponent<AudioSource> ();
 			songIsPlaying = true;
 			Player.PlayerInstance.usingRhythm = true;
+			NoteButtons.SetActive (true);
+
+			note1Target = GameObject.Find ("Red Note Button").transform;
+			note2Target = GameObject.Find ("Blue Note Button").transform;
+			note3Target = GameObject.Find ("Green Note Button").transform;
+
 		}
-		note1Target = GameObject.Find ("Red Note Button").transform;
-		note2Target = GameObject.Find ("Blue Note Button").transform;
-		note3Target = GameObject.Find ("Green Note Button").transform;
+	
 	
 		//tempPos = songTarget.position.x - 6.7f;
 
@@ -82,10 +91,12 @@ public class AttackSong : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		tempPos1 = note1Target.position.x;
-		tempPos2 = note2Target.position.x;
-		tempPos3 = note3Target.position.x;
+		while (Player.PlayerInstance.usingRhythm == true) {
 
+			tempPos1 = note1Target.position.x;
+			tempPos2 = note2Target.position.x;
+			tempPos3 = note3Target.position.x;
+		}
 		//songTarget = GameObject.Find ("NoteButtons").transform;
 		//tempPos = songTarget.position.x - 4.65f;
 
@@ -100,42 +111,46 @@ public class AttackSong : MonoBehaviour {
 
 	void FixedUpdate(){
 
-		songLength += Time.deltaTime;
-		scoreObj.GetComponent<TextMesh>().text = "Score: " + correctNotes.ToString();
+		while (Player.PlayerInstance.usingRhythm == true) {
+
+			songLength += Time.deltaTime;
+			scoreObj.GetComponent<TextMesh> ().text = "Score: " + correctNotes.ToString ();
 
 
-		//add more picknotevalues for more note instantiations
+			//add more picknotevalues for more note instantiations
 
 
-		// when you add more notes increment the [9]
-		if ((songLength >= noteSelection [pickNoteValue]) && (songLength <= noteSelection [9] )) {
-			if(songIsPlaying)
-			{
-				SoundManager.SoundInstance.StopCoroutine ("WaitAndPlay");
-				AS.Play();
-				songIsPlaying = false;
+			// when you add more notes increment the [9]
+			if ((songLength >= noteSelection [pickNoteValue]) && (songLength <= noteSelection [9])) {
+				if (songIsPlaying) {
+					SoundManager.SoundInstance.StopCoroutine ("WaitAndPlay");
+					AS.Play ();
+					songIsPlaying = false;
+				}
+
+				if (pickNoteValue == 0 || pickNoteValue == 3 || pickNoteValue == 7) {
+					Instantiate (note1, new Vector3 (tempPos1, (note1Target.position.y + 4), 0), Quaternion.identity);
+				}
+
+				if (pickNoteValue == 1 || pickNoteValue == 9 || pickNoteValue == 5 || pickNoteValue == 8) {
+					Instantiate (note2, new Vector3 (tempPos2, (note2Target.position.y + 4), 0), Quaternion.identity);
+				}
+
+				if (pickNoteValue == 2 || pickNoteValue == 6 || pickNoteValue == 4) {
+					Instantiate (note3, new Vector3 (tempPos3, (note3Target.position.y + 4), 0), Quaternion.identity);
+				}
+
+				pickNoteValue += 1;
 			}
 
-			if (pickNoteValue == 0 || pickNoteValue == 3 || pickNoteValue == 7) {
-				Instantiate (note1, new Vector3 (tempPos1, (note1Target.position.y + 4), 0), Quaternion.identity);
-			}
-
-			if (pickNoteValue == 1 || pickNoteValue == 9 || pickNoteValue == 5 || pickNoteValue == 8) {
-				Instantiate (note2, new Vector3 (tempPos2, (note2Target.position.y + 4), 0), Quaternion.identity);
-			}
-
-			if (pickNoteValue == 2 || pickNoteValue == 6 || pickNoteValue == 4) {
-				Instantiate (note3, new Vector3 (tempPos3, (note3Target.position.y + 4), 0), Quaternion.identity);
-			}
-
-			pickNoteValue += 1;
-		}
-
-		if (pickNoteValue == 9 && Notes.maxNotes == 0) 
+			/*
+		if ((pickNoteValue == 9) && (Notes.maxNotes == 0))
 		{
 			StartCoroutine("StopAttack");
 		}
 
+	*/
+		}
 
 
 
