@@ -133,6 +133,8 @@ public class Enemy : Character {
 
 	public override IEnumerator GetsHurt()
 	{
+		//GameObject game
+		//if(gameObject.ot)
 		health -= 10;
 		if (!isDead) {
 			GameAnimator.SetTrigger ("damage");

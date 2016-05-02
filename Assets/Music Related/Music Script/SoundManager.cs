@@ -66,6 +66,12 @@ public class SoundManager : MonoBehaviour {
 		gameMusic1.Play ();
 	}
 
+	public void PauseMusic()
+	{
+		gameMusic1.Pause(); 
+
+	}
+
 	IEnumerator WaitAndPlay(float waitTime) {
 		yield return new WaitForSeconds(waitTime);
 		gameMusic1.clip = MainClip;

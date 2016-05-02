@@ -343,6 +343,10 @@ Prefab:
       propertyPath: otherSources.Array.data[1]
       value: 
       objectReference: {fileID: 6171384, guid: 30bbde2f696ab42f79c54c2bbec82f64, type: 2}
+    - target: {fileID: 0}
+      propertyPath: spellPosition
+      value: 
+      objectReference: {fileID: 455640}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171154}

@@ -20,6 +20,7 @@ TagManager:
   - Red
   - Blue
   - Note
+  - RhythmAttack
   layers:
   - Default
   - TransparentFX

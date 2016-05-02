@@ -10,12 +10,19 @@ public class Player : Character {
 	public bool IsJumping{ get; set;}
 	public bool OnTheGround{ get; private set;}
 	private bool tempImmortal = false;
-	public bool usingRhythm{ get; set;}
+	public bool usingRhythm { get; set;}
+
 	public bool canFightBoss{ get; set;} 
 
+	[SerializeField]
+	protected GameObject RhythmBlade;
+	protected float yPos;
+	protected float xPos;
 
 	//private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
-	private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
+	//private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
+	private Vector3 startPos = new Vector3(-4.5f,0.0f,0.0f);
+
 
 	[SerializeField]
 	private float immortalityTime;
@@ -47,6 +54,9 @@ public class Player : Character {
 	private Transform[] groundPoints;
 
 	[SerializeField]
+	protected Transform rhythmAttackPosition;
+
+	[SerializeField]
 	private float groundRadius;
 	[SerializeField]
 	private LayerMask whatIsGround;
@@ -67,6 +77,8 @@ public class Player : Character {
 	{	
 		base.Start ();
 		usingRhythm = false;
+	
+
 		transform.position = startPos;
 		playerRenderer = GetComponent<SpriteRenderer> ();
 		PlayerRigidBody = GetComponent<Rigidbody2D>();
@@ -80,8 +92,9 @@ public class Player : Character {
 			{
 				CharacterDemise();
 			}
-			//-7.15
 			handleInput ();
+			yPos = rhythmAttackPosition.position.y;
+			xPos = rhythmAttackPosition.position.x;
 
 		}
 	}
@@ -98,6 +111,40 @@ public class Player : Character {
 		}
 	
 
+	}
+
+
+
+	public void doRhythmAttack()
+	{
+		// put in int v if this doesnt work
+		if (facingRight) {
+			if(Player.PlayerInstance.usingRhythm == true){
+				for(int i = 0; i < 6; i++)
+				{
+					
+					GameObject tmpR = (GameObject)Instantiate(RhythmBlade, new Vector3(xPos,(yPos + (1 + i)), 0), Quaternion.identity);
+					tmpR.GetComponent<RhythmAttack>().Initialize(Vector2.right);
+					
+				}
+			}
+		} 
+		else 
+		{
+			if(Player.PlayerInstance.usingRhythm == true){
+				for(int i = 0; i < 6; i++)
+				{
+					
+					GameObject tmpL = (GameObject)Instantiate(RhythmBlade, new Vector3(xPos,(yPos + (1+ i)), 0), Quaternion.Euler(new Vector3(0,0,180)));
+					tmpL.GetComponent<RhythmAttack>().Initialize(Vector2.right);
+					
+				}
+				
+			}
+
+			
+			
+		}
 	}
 
 
@@ -159,6 +206,10 @@ public class Player : Character {
 		if (Input.GetKeyDown (KeyCode.C)) {
 
 			GameAnimator.SetTrigger("rhythmAttack");
+			usingRhythm = true;
+			Debug.Log (usingRhythm);
+			AttackSong.NoteButtons.SetActive(true);
+
 			//shootFire(0);
 		}
 
@@ -208,12 +259,15 @@ public class Player : Character {
 
 		if(!OnTheGround && v == 1 || OnTheGround && v == 0)
 		{
+
 			base.doSpecialAttack(v);
 		}
 
 
 
 	}
+
+
 
 
 	private void HandleLayers()

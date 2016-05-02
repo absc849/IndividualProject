@@ -52,6 +52,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &153060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402854}
+  m_Layer: 0
+  m_Name: RhythmAttackSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &153400
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +97,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &163234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461008}
+  - 23: {fileID: 2322872}
+  - 102: {fileID: 10263744}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &167748
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +129,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &402854
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .180000007, y: -.219999999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426930}
+  m_RootOrder: 6
 --- !u!4 &406950
 Transform:
   m_ObjectHideFlags: 1
@@ -128,14 +172,16 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.5, y: -1.49000001, z: 0}
+  m_LocalPosition: {x: 18.2000008, y: -1.49000001, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 416398}
   - {fileID: 406950}
   - {fileID: 432094}
   - {fileID: 455104}
+  - {fileID: 461008}
   - {fileID: 475794}
+  - {fileID: 402854}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &432094
@@ -162,6 +208,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 426930}
   m_RootOrder: 3
+--- !u!4 &461008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.55000019, y: 1.73500013, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 426930}
+  m_RootOrder: 4
 --- !u!4 &475794
 Transform:
   m_ObjectHideFlags: 1
@@ -173,7 +231,31 @@ Transform:
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 426930}
-  m_RootOrder: 4
+  m_RootOrder: 5
+--- !u!23 &2322872
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163234}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
 --- !u!50 &5071130
 Rigidbody2D:
   serializedVersion: 2
@@ -253,6 +335,27 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!102 &10263744
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 163234}
+  m_Text: "Score: \n"
+  m_OffsetZ: 0
+  m_CharacterSize: .100000001
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 60
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190335
 --- !u!114 &11427300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -288,12 +391,14 @@ MonoBehaviour:
   speed: 5
   magicSpell: {fileID: 176424, guid: b2ed990f7398d4760abb8e51d1acc84a, type: 2}
   spellPosition: {fileID: 455104}
+  RhythmBlade: {fileID: 195138, guid: df87f466902154e1bae3f6df81b15798, type: 2}
   immortalityTime: 3
   spawnHealth: 50
   groundPoints:
   - {fileID: 416398}
   - {fileID: 406950}
   - {fileID: 432094}
+  rhythmAttackPosition: {fileID: 402854}
   groundRadius: .200000003
   whatIsGround:
     serializedVersion: 2
