@@ -7,6 +7,9 @@ public class Notes : MonoBehaviour {
 	private Rigidbody2D noteRigidBody;
 	private Vector2 noteSpeed;
 	private Transform attackNoteTarget;
+
+	[SerializeField]
+	protected GameObject RhythmBlood;
 	
 	public static int maxNotes = 9;
 	
@@ -60,10 +63,16 @@ public class Notes : MonoBehaviour {
 			tempAttackNotePos = attackNoteTarget.position.y;
 	
 		
-		if ((AttackSong.destroyNote1 == "yes") && (gameObject.name == "Red Note(Clone)") && (transform.position.y < tempAttackNotePos)) {
+		if ((AttackSong.destroyNote1 == "yes") && (gameObject.name == "Red Note(Clone)") && (transform.position.y <= tempAttackNotePos)) {
 			Destroy (gameObject);
 			//instantiate destroy animation use code here and replace anim with the animation name
 			//Instantiate(anim,transform.position,anim.rotation)
+			/*
+			 * 		GameObject tmpR = (GameObject)Instantiate(RhythmBlade, new Vector3(xPos,(yPos + (1 + i)), 0), Quaternion.identity);
+									buttonTimer += Time.deltaTime;
+
+			 * */
+			Instantiate(RhythmBlood,new Vector3(AttackSong.tempPos1,tempAttackNotePos,0), Quaternion.identity);
 			AttackSong.correctNotes += 1;
 			AttackSong.destroyNote1 = "no";
 		} else if ((AttackSong.destroyNote2 == "yes") && (gameObject.name == "Blue Note(Clone)") && (transform.position.y < tempAttackNotePos)) {

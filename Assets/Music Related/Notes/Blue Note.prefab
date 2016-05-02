@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84dca2cf6f23478abe5d07f9ebed05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RhythmBlood: {fileID: 154022, guid: ba74f152ea2e44c6fa54efaddbe2b9e5, type: 2}
 --- !u!212 &21235210
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -112,6 +113,10 @@ Prefab:
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: RhythmBlood
+      value: 
+      objectReference: {fileID: 154022, guid: ba74f152ea2e44c6fa54efaddbe2b9e5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136016}

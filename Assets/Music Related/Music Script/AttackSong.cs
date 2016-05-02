@@ -26,7 +26,6 @@ public class AttackSong : MonoBehaviour {
 	public GameObject[] notes;
 	*/
 
-	float tempPos;
 	public GameObject note1;
 	public GameObject note2;
 	public GameObject note3;
@@ -53,9 +52,9 @@ public class AttackSong : MonoBehaviour {
 	//if every song has the same amount of notes dont use this
 	// public static int totalNotes = 0;
 
-	private float tempPos1 = 0;
-	private float tempPos2 = 0;
-	private float tempPos3 = 0;
+	public static float tempPos1 = 0;
+	public static float tempPos2 = 0;
+	public static float tempPos3 = 0;
 
 	public AudioSource AS;
 
@@ -181,7 +180,6 @@ public class AttackSong : MonoBehaviour {
 		if ((pickNoteValue == 9) && (Notes.maxNotes <= 0))
 		{
 				buttonTimer += Time.deltaTime;
-				Debug.Log (buttonTimer);
 
 				if(correctNotes > 5)
 				{
