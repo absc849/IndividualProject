@@ -30,6 +30,9 @@ public class Player : Character {
 	[SerializeField]
 	protected int spawnHealth;
 
+	[SerializeField]
+	protected int Life;
+
 	public event DeathHandler Death;
 	private SpriteRenderer playerRenderer;
 	//animator will use this
@@ -326,6 +329,7 @@ public class Player : Character {
 			if(health <= 0)
 			{
 				triggerDeath();
+				Life -= 1;
 
 			}
 			return health <=0;
@@ -338,5 +342,13 @@ public class Player : Character {
 		GameAnimator.SetTrigger("idle");
 		health = spawnHealth;
 		transform.position = startPos;
+		if (AddBoss.canFightBoss == true) {
+			//change this when editing level
+			transform.position = new Vector3 (152f, -1.58f, 0);
+		
+		} else {
+			transform.position = startPos;
+
+		}
 	}
 }

@@ -8,8 +8,8 @@ public class AddBoss : MonoBehaviour {
 	[SerializeField]
 	private BoxCollider2D barrier;
 	private Vector3 startPos = new Vector3(154.52f,1.74f,0.0f);
-	private float bossRotate = -180.0f;
-	private bool canFightBoss;
+	//private float bossRotate = -180.0f;
+	public static bool canFightBoss;
 
 	//make 4 boss variables 
 
