@@ -11,10 +11,12 @@ public class RhythmAttack : MonoBehaviour {
 	private float attackSpeed;
 	private Rigidbody2D rhythmRigidBody;
 	private Vector2 attackDirection;
+	public static bool rhythmCollided;
 
 	
 	// Use this for initialization
 	void Start () {
+		rhythmCollided = false;
 		rhythmRigidBody = GetComponent<Rigidbody2D> ();
 	}
 	
@@ -27,6 +29,7 @@ public class RhythmAttack : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other)
 	{
 		if (other.gameObject.tag == "Player" || other.gameObject.tag == "Enemy" || other.gameObject.tag == "Boss") {
+			rhythmCollided = true;
 			Destroy (gameObject);
 		}
 	}

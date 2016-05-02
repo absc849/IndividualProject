@@ -10,6 +10,13 @@ public class AttackSong : MonoBehaviour {
 	public Transform scoreObj;
 
 	public static GameObject NoteButtons;
+	public static GameObject enemy;
+	public static GameObject enemy2;
+
+	public static GameObject boss;
+	public static GameObject[] enemies;
+	public static GameObject[] enemies2;
+
 
 
 	//AttackSong.enabled = false;
@@ -46,7 +53,9 @@ public class AttackSong : MonoBehaviour {
 
 	
 
-	public static int correctNotes = 0;
+	public static int correctNotes;
+	public static int playNotes;
+
 	//probs wont need this
 	//	public static int bestStreak = 0;
 	//if every song has the same amount of notes dont use this
@@ -75,6 +84,11 @@ public class AttackSong : MonoBehaviour {
 		NoteButtons = GameObject.Find ("NoteButtons");
 		//PlayerRigidBody = GetComponent<Rigidbody2D>();
 		NoteButtons.SetActive (false);
+		enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+		enemies2 = GameObject.FindGameObjectsWithTag("Enemy");
+
+		boss = GameObject.FindGameObjectWithTag("Enemy1");
 		//enable 
 //	if (NoteButtons.activeSelf) {
 ////			NoteButtons.SetActive (true);
@@ -97,6 +111,8 @@ public class AttackSong : MonoBehaviour {
 	{
 					//	NoteButtons.SetActive (true);
 
+
+
 			AS = GetComponent<AudioSource> ();
 			songIsPlaying = true;
 			enoughNotes = false;
@@ -107,21 +123,61 @@ public class AttackSong : MonoBehaviour {
 			note1Target = GameObject.Find ("Red Note Button").transform;
 			note2Target = GameObject.Find ("Blue Note Button").transform;
 			note3Target = GameObject.Find ("Green Note Button").transform;
-			
+		if (Player.PlayerInstance.usingRhythm == true) {
+			Player.PlayerInstance.enabled = false;
+			Player.PlayerInstance.PlayerRigidBody.isKinematic = true;
+			Player.PlayerInstance.GetComponent<Collider2D>().enabled = false;
+			//enemy.GetComponent<Enemy>().enabled = false;
+
+
+//			for (int i = 0; i < enemies.Length; i++) {
+//				enemies [i].GetComponent<Enemy> ().enabled = false;
+//			}
+//		
+		}
 	}
 
 	void OnDisable()
 	{
+
 		SoundManager.SoundInstance.PlayMusic (SoundManager.SoundInstance.MainClip);
 		songLength = 0;
-		Debug.Log (Notes.maxNotes);
-		Debug.Log (pickNoteValue);
+		buttonTimer = 0;
+		playNotes = 0;
+		pickNoteValue = 0;
+		Notes.maxNotes = 9;
+		//Debug.Log (Notes.maxNotes);
+		//Debug.Log (pickNoteValue);
 		//Player.PlayerInstance.doSpecialAttack (0);
+
 		if (enoughNotes == true) {
 			Player.PlayerInstance.doRhythmAttack ();
 			enoughNotes = false;
 		}
 		Player.PlayerInstance.usingRhythm = false;
+		Player.PlayerInstance.enabled = true;
+		Player.PlayerInstance.GetComponent<Collider2D>().enabled = true;
+		Player.PlayerInstance.PlayerRigidBody.isKinematic = false;
+	
+
+			//for (int j = 0; j < enemies2.Length; j++) {
+				//enemies2 [j].GetComponent<Enemy> ().enabled = true;
+			//Debug.Log (enemies2[j]);
+			//}
+
+		/*
+		 * 
+		 *  for (int i=0; i<Average.Length; i++) {
+             Average[i] = Compare-Average[i];
+         }
+         Compare = 0;
+         for (int i=0; i<Average.Length; i++) {
+             Compare = Compare + Average[i];
+         }
+
+		 */
+
+
 
 	}
 
@@ -177,18 +233,18 @@ public class AttackSong : MonoBehaviour {
 			}
 
 
-		if ((pickNoteValue == 9) && (Notes.maxNotes <= 0))
+		if (pickNoteValue == 9)
 		{
 				buttonTimer += Time.deltaTime;
 
-				if(correctNotes > 5)
+				if(playNotes > 5)
 				{
 					enoughNotes = true;
 				}
-				if(buttonTimer >= 2 ){
+				if(buttonTimer >= 6 ){
 					NoteButtons.SetActive(false);
 
-		}
+			}
 		}
 
 		

@@ -22,13 +22,13 @@ public class Notes : MonoBehaviour {
 	
 	
 	float tempAttackNotePos = 0;
-	
+
 	
 	// Use this for initialization
 	void Start () {
 		
 	//	if (Player.PlayerInstance.usingRhythm == true) {
-		
+
 		noteSpeed = new Vector2 (0, -10);
 		noteRigidBody = GetComponent<Rigidbody2D> ();
 		/*
@@ -72,20 +72,34 @@ public class Notes : MonoBehaviour {
 									buttonTimer += Time.deltaTime;
 
 			 * */
-			Instantiate(RhythmBlood,new Vector3(AttackSong.tempPos1,tempAttackNotePos,0), Quaternion.identity);
+			GameObject tmpBlood = (GameObject)Instantiate(RhythmBlood,new Vector3(AttackSong.tempPos1,tempAttackNotePos,0), Quaternion.identity);
+		
+			Destroy(tmpBlood,1);
 			AttackSong.correctNotes += 1;
+			AttackSong.playNotes += 1;
 			AttackSong.destroyNote1 = "no";
 		} else if ((AttackSong.destroyNote2 == "yes") && (gameObject.name == "Blue Note(Clone)") && (transform.position.y < tempAttackNotePos)) {
 			Destroy (gameObject);
 			//instantiate destroy animation
+			GameObject tmpBlood2 = (GameObject)Instantiate(RhythmBlood,new Vector3(AttackSong.tempPos2,tempAttackNotePos,0), Quaternion.identity);
+			
+			Destroy(tmpBlood2,1);
 			AttackSong.correctNotes += 1;
+			AttackSong.playNotes += 1;
+
 			AttackSong.destroyNote2 = "no";
 			
 			
 		} else if ((AttackSong.destroyNote3 == "yes") && (gameObject.name == "Green Note(Clone)") && (transform.position.y < tempAttackNotePos)) {
 			Destroy (gameObject);
 			//instantiate destroy animation
+
+			GameObject tmpBlood3 = (GameObject)Instantiate(RhythmBlood,new Vector3(AttackSong.tempPos3,tempAttackNotePos,0), Quaternion.identity);
+			
+			Destroy(tmpBlood3,1);
 			AttackSong.correctNotes += 1;
+			AttackSong.playNotes += 1;
+
 			AttackSong.destroyNote3 = "no";
 			
 			

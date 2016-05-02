@@ -135,7 +135,11 @@ public class Enemy : Character {
 	{
 		//GameObject game
 		//if(gameObject.ot)
-		health -= 10;
+		if (RhythmAttack.rhythmCollided == true) {
+			health -= 30;
+		} else {
+			health -= 10;
+		}
 		if (!isDead) {
 			GameAnimator.SetTrigger ("damage");
 		} else {

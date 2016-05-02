@@ -6,7 +6,7 @@ public delegate void DeathHandler();
 
 public class Player : Character {
 	//public properties
-	public Rigidbody2D PlayerRigidBody{ get; set;}
+	public  Rigidbody2D PlayerRigidBody{ get; set;}
 	public bool IsJumping{ get; set;}
 	public bool OnTheGround{ get; private set;}
 	private bool tempImmortal = false;
@@ -203,7 +203,7 @@ public class Player : Character {
 			GameAnimator.SetTrigger("fireball");
 			//shootFire(0);
 		}
-		if (Input.GetKeyDown (KeyCode.C)) {
+		if (Input.GetKeyDown (KeyCode.C) && !IsJumping) {
 
 			GameAnimator.SetTrigger("rhythmAttack");
 			usingRhythm = true;

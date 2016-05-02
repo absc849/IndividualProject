@@ -284,6 +284,7 @@ MonoBehaviour:
   attackSources:
   - Mace
   - FireBall
+  - RhythmAttack
   speed: 3
   magicSpell: {fileID: 167028, guid: 97650326f28ec4ee4a17e9f4474019e6, type: 2}
   spellPosition: {fileID: 414052}
@@ -325,6 +326,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: attackSources.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_TagString
       value: EnemyPunch
       objectReference: {fileID: 0}
@@ -344,6 +349,10 @@ Prefab:
       propertyPath: spellPosition
       value: 
       objectReference: {fileID: 414052}
+    - target: {fileID: 0}
+      propertyPath: attackSources.Array.data[2]
+      value: RhythmAttack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117834}
