@@ -290,6 +290,7 @@ MonoBehaviour:
   spellPosition: {fileID: 414052}
   meleeRange: .5
   specialAttackRange: 4
+  Blood: {fileID: 154022, guid: ba74f152ea2e44c6fa54efaddbe2b9e5, type: 2}
   turningPointL: {fileID: 459072, guid: d65c6862dbf8d4ae4b2a5143eac14b2a, type: 2}
   turningPointR: {fileID: 471722, guid: d720d19cb25dd4db4be003e9283bb8c5, type: 2}
 --- !u!212 &21296702
@@ -353,6 +354,10 @@ Prefab:
       propertyPath: attackSources.Array.data[2]
       value: RhythmAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Blood
+      value: 
+      objectReference: {fileID: 154022, guid: ba74f152ea2e44c6fa54efaddbe2b9e5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 117834}

@@ -13,6 +13,10 @@ public class Enemy : Character {
 	public GameObject TargetCharacter{ get; set;}
 
 	[SerializeField]
+	private GameObject Blood;
+
+	public static Vector3 position;
+	[SerializeField]
 	private Transform turningPointL;
 	[SerializeField]
 	private Transform turningPointR;
@@ -27,7 +31,7 @@ public class Enemy : Character {
 	// Update is called once per frame
 	void Update () {
 
-
+		position = transform.position;
 		if (!isDead) {
 			if(!TakingDamage){
 				currentState.Execute ();
@@ -144,6 +148,11 @@ public class Enemy : Character {
 			GameAnimator.SetTrigger ("damage");
 		} else {
 			GameAnimator.SetTrigger("death");
+			if(AddBoss.canFightBoss == true){
+			GameObject tmpBlood = (GameObject)Instantiate(Blood,transform.position, Quaternion.identity);
+			
+			Destroy(tmpBlood,4.5f);
+			}
 			yield return null;
 		}
 

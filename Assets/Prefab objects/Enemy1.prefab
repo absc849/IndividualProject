@@ -293,6 +293,7 @@ MonoBehaviour:
   spellPosition: {fileID: 455640}
   meleeRange: .75
   specialAttackRange: 7
+  Blood: {fileID: 154022, guid: ba74f152ea2e44c6fa54efaddbe2b9e5, type: 2}
   turningPointL: {fileID: 406478, guid: e616e26b1512241188a30bc1d8422788, type: 2}
   turningPointR: {fileID: 449658, guid: 750e0a3d5e85747b5a66938f0423cf7e, type: 2}
 --- !u!212 &21222104
@@ -364,6 +365,10 @@ Prefab:
       propertyPath: turningPointR
       value: 
       objectReference: {fileID: 449658, guid: 750e0a3d5e85747b5a66938f0423cf7e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Blood
+      value: 
+      objectReference: {fileID: 154022, guid: ba74f152ea2e44c6fa54efaddbe2b9e5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171154}

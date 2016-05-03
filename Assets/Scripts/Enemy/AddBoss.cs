@@ -48,13 +48,15 @@ public class AddBoss : MonoBehaviour {
 			//Physics2D.IgnoreCollision (barrier, o, false);
 			if(!canFightBoss){
 			canFightBoss = true;
-			bossFight();
+			//bossFight();
 				barrier.isTrigger = false;
 			}
 		}
 
 	}
 
+
+	/*
 
 	void bossFight()
 	{
@@ -64,7 +66,7 @@ public class AddBoss : MonoBehaviour {
 		}
 //		canFightBoss = false;
 	}
-
+*/
 }
 
 
