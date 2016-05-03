@@ -21,9 +21,8 @@ public class Player : Character {
 
 	//private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
 	//private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
-	//private Vector3 startPos = new Vector3(-4.5f,0.0f,0.0f);
-	private Vector3 startPos = new Vector3(217.4f,0.0f,0.0f);
-
+	private Vector3 startPos = new Vector3(-4.5f,0.0f,0.0f);
+	//private Vector3 startPos = new Vector3(217.4f,0.0f,0.0f);
 	
 	[SerializeField]
 	private float immortalityTime;
@@ -140,7 +139,7 @@ public class Player : Character {
 				{
 					
 					GameObject tmpL = (GameObject)Instantiate(RhythmBlade, new Vector3(xPos,(yPos + (1+ i)), 0), Quaternion.Euler(new Vector3(0,0,180)));
-					tmpL.GetComponent<RhythmAttack>().Initialize(Vector2.right);
+					tmpL.GetComponent<RhythmAttack>().Initialize(Vector2.left);
 					
 				}
 				
