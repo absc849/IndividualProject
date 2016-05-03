@@ -20,6 +20,9 @@ public class Enemy : Character {
 	private Transform turningPointL;
 	[SerializeField]
 	private Transform turningPointR;
+
+
+	public static bool bossIsDead;
 	// Use this for initialization
 	public override void Start () {
 	
@@ -152,6 +155,9 @@ public class Enemy : Character {
 			GameObject tmpBlood = (GameObject)Instantiate(Blood,transform.position, Quaternion.identity);
 			
 			Destroy(tmpBlood,4.5f);
+				// bool that says boss is dead
+				bossIsDead = true;
+
 			}
 			yield return null;
 		}

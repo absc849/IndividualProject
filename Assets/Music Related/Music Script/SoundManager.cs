@@ -72,7 +72,7 @@ public class SoundManager : MonoBehaviour {
 
 	}
 
-	IEnumerator WaitAndPlay(float waitTime) {
+	 IEnumerator WaitAndPlay(float waitTime) {
 		yield return new WaitForSeconds(waitTime);
 		gameMusic1.clip = MainClip;
 		gameMusic1.Play ();

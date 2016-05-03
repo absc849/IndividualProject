@@ -14,10 +14,12 @@ public class Player : Character {
 
 	public bool canFightBoss{ get; set;} 
 
+
 	[SerializeField]
 	protected GameObject RhythmBlade;
 	protected float yPos;
 	protected float xPos;
+	protected float endGameTimer;
 
 	//private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
 	//private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
@@ -80,7 +82,8 @@ public class Player : Character {
 	{	
 		base.Start ();
 		usingRhythm = false;
-	
+		endGameTimer = 0;
+
 
 		transform.position = startPos;
 		playerRenderer = GetComponent<SpriteRenderer> ();
@@ -100,6 +103,21 @@ public class Player : Character {
 			xPos = rhythmAttackPosition.position.x;
 
 		}
+		if (isDead && Life <= 0) {
+			
+			//SoundManager.SoundInstance.PauseMusic();
+			Application.LoadLevel(1);
+			
+			
+		}
+
+		if (Enemy.bossIsDead == true) {
+			endGameTimer += Time.deltaTime;
+			Debug.Log (endGameTimer);
+			if(endGameTimer > 4.5){
+				Application.LoadLevel(1);
+			}
+		}
 	}
 	// Fixed Update is called once per frame
 	void FixedUpdate() 
@@ -112,6 +130,7 @@ public class Player : Character {
 			flipPlayer(horizontal);
 			HandleLayers ();
 		}
+	
 	
 
 	}
@@ -320,6 +339,7 @@ public class Player : Character {
 		if (Death != null) 
 		{
 			Death();
+		
 		}
 	}
 
@@ -328,8 +348,9 @@ public class Player : Character {
 		get{
 			if(health <= 0)
 			{
-				triggerDeath();
 				Life -= 1;
+
+				triggerDeath();
 
 			}
 			return health <=0;
@@ -338,6 +359,7 @@ public class Player : Character {
 
 	public override void CharacterDemise()
 	{
+		Life -= 1;
 		PlayerRigidBody.velocity = Vector2.zero;
 		GameAnimator.SetTrigger("idle");
 		health = spawnHealth;
@@ -349,6 +371,13 @@ public class Player : Character {
 		} else {
 			transform.position = startPos;
 
+		}
+
+		if(Life <= 0)
+		{
+			//SoundManager.SoundInstance.PauseMusic();
+			Application.LoadLevel(1);
+			
 		}
 	}
 }
