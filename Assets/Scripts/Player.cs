@@ -21,9 +21,10 @@ public class Player : Character {
 
 	//private Vector3 startPos = new Vector3(143.71f,-1.75f,0.0f);
 	//private Vector3 startPos = new Vector3(79.5f,-1.75f,0.0f);
-	private Vector3 startPos = new Vector3(-4.5f,0.0f,0.0f);
+	//private Vector3 startPos = new Vector3(-4.5f,0.0f,0.0f);
+	private Vector3 startPos = new Vector3(217.4f,0.0f,0.0f);
 
-
+	
 	[SerializeField]
 	private float immortalityTime;
 
@@ -344,7 +345,7 @@ public class Player : Character {
 		transform.position = startPos;
 		if (AddBoss.canFightBoss == true) {
 			//change this when editing level
-			transform.position = new Vector3 (152f, -1.58f, 0);
+			transform.position = new Vector3 (226, -1.55f, 0);
 		
 		} else {
 			transform.position = startPos;

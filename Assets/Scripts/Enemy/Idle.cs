@@ -23,7 +23,7 @@ public class Idle : EnemyStates{
 
 	public void Exit(){}
 	public void OnTriggerEnter(Collider2D other){
-		if (other.tag == "FireBall" || other.tag == "Mace") 
+		if (other.tag == "FireBall" || other.tag == "Mace" || other.tag == "RhythmAttack" ) 
 		{
 			enemy.TargetCharacter = Player.PlayerInstance.gameObject;
 		}

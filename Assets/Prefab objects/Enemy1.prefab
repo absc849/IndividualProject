@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 159.575699, y: 3.63195658, z: 0}
+  m_LocalPosition: {x: 237.944, y: 2.39998603, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 473060}
@@ -293,8 +293,8 @@ MonoBehaviour:
   spellPosition: {fileID: 455640}
   meleeRange: .75
   specialAttackRange: 7
-  turningPointL: {fileID: 407180, guid: e616e26b1512241188a30bc1d8422788, type: 2}
-  turningPointR: {fileID: 493316, guid: 750e0a3d5e85747b5a66938f0423cf7e, type: 2}
+  turningPointL: {fileID: 406478, guid: e616e26b1512241188a30bc1d8422788, type: 2}
+  turningPointR: {fileID: 449658, guid: 750e0a3d5e85747b5a66938f0423cf7e, type: 2}
 --- !u!212 &21222104
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -356,6 +356,14 @@ Prefab:
       propertyPath: attackSources.Array.data[2]
       value: RhythmAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: turningPointL
+      value: 
+      objectReference: {fileID: 406478, guid: e616e26b1512241188a30bc1d8422788, type: 2}
+    - target: {fileID: 0}
+      propertyPath: turningPointR
+      value: 
+      objectReference: {fileID: 449658, guid: 750e0a3d5e85747b5a66938f0423cf7e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171154}

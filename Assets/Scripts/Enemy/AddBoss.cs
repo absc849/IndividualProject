@@ -7,7 +7,7 @@ public class AddBoss : MonoBehaviour {
 	protected GameObject boss;
 	[SerializeField]
 	private BoxCollider2D barrier;
-	private Vector3 startPos = new Vector3(154.52f,1.74f,0.0f);
+	private Vector3 startPos = new Vector3(235.46f,-0.57f,0.0f);
 	//private float bossRotate = -180.0f;
 	public static bool canFightBoss;
 
@@ -24,23 +24,12 @@ public class AddBoss : MonoBehaviour {
 	}
 
 
-//	// edit with if statement depending on the level to instantiate a boss, if level 1 then level 1 boss
+////	// edit with if statement depending on the level to instantiate a boss, if level 1 then level 1 boss
 //	void OnTriggerEnter2D(Collider2D o)
 //	{
-//		if (canFightBoss) {
-//
-//			if (o.gameObject.tag == "Player" && o.gameObject.transform.position.x < 151.9061) {
-//	
-//				//o.gameObject.GetComponent<Player> ().PlayerRigidBody.velocity.x = Vector2.zero;
-////				Vector2 v = 
-////				v.x = 0;
-////				Player.PlayerInstance.PlayerRigidBody.velocity.x = v;
-//
-//			}
+//		if (o.gameObject.tag == "Enemy") {
+//			barrier.isTrigger = true;
 //		}
-////		//if player gets passed the collision then activate 
-////		//disable collision trigger 
-////		// instantiate boss
 //	}
 
 
@@ -63,6 +52,7 @@ public class AddBoss : MonoBehaviour {
 				barrier.isTrigger = false;
 			}
 		}
+
 	}
 
 
@@ -70,6 +60,7 @@ public class AddBoss : MonoBehaviour {
 	{
 		if (canFightBoss == true) {
 			Instantiate (boss, startPos, Quaternion.identity);
+		//	boss.gameObject.GetComponent<Enemy>().
 		}
 //		canFightBoss = false;
 	}
